@@ -11,15 +11,19 @@ DISABLE_LS_COLORS="false"
 REPORTTIME=10
 TERM=xterm-256color
 
-export GREP_OPTIONS="--exclude=\*.svn\*"
+umask 077
+
 export LANG="en_US.UTF-8"
 
-# Set my editor and git editor
-export EDITOR="vim -f"
-export GIT_EDITOR='vim -f'
-export VIM_APP_DIR='/usr/bin/vim'
+# Ignore commands starting with a space, duplicates,
+# and a few others.
+export HISTIGNORE="[ ]*:&:bg:fg:ls -l:ls -al:ls -la:ls1:lsa:lsr:gits:gits?"
 
 export GREP_OPTIONS="--color=auto --exclude=\*.svn\* --exclude=\*.git\*"
+
+# Set my git editor
+export GIT_EDITOR='vim -f'
+export VIM_APP_DIR='/usr/bin/vim'
 
 # Get helpful ruby warnings when calling scripts
 #export RUBYOPT="w"
