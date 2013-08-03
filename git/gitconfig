@@ -27,7 +27,7 @@
 [status]
 	submodule = 1
 [core]
-	editor = vim -w
+	editor = vim
 	excludesfile = $HOME/.gitignore_global
 	autocrlf = input
 [push]
