@@ -17,16 +17,21 @@ export LANG="en_US.UTF-8"
 # Set my editor and git editor
 export EDITOR="vim -f"
 export GIT_EDITOR='vim -f'
+export VIM_APP_DIR='/usr/bin/vim'
+
+export GREP_OPTIONS="--color=auto --exclude=\*.svn\* --exclude=\*.git\*"
 
 # Get helpful ruby warnings when calling scripts
 #export RUBYOPT="w"
-
-# PATH
-export PATH=$HOME/bin:$HOME/pear/bin:/Applications/Jmeter-2.4/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git svn knife rvm)
 
 source $ZSH/oh-my-zsh.sh
+
+# PATH
+export PATH=$HOME/bin:$HOME/pear/bin:/Applications/Jmeter-2.4/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:$PATH
+export PATH=$HOME/bin:$PATH
