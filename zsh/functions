@@ -23,3 +23,8 @@ function yslow {
 function git-report {
   ~/bin/git-weekly-report -g 'Christian Trabold' -l $PWD -p ~/workspace/projects.rb $*
 }
+
+# Grep DNS entries
+function dns-grep {
+  dig $* -t AXFR|grep
+}

@@ -20,9 +20,6 @@ alias vd='vagrant destroy'
 # Find git conflicts in current repo
 alias gitc="grep -r -e '<<<<\|>>>>' *"
 
-# Grep DNS entries
-alias dgrep="dig @tools.lhotse.ov.otto.de lhotse.ov.otto.de -t AXFR|grep"
-
 # Disable deprecation warnings
 # @see http://stackoverflow.com/questions/5591509/suppress-ruby-warnings-when-running-specs
 alias ruby="ruby -W0"
