@@ -19,3 +19,7 @@ function update_repos {
 function yslow {
   phantomjs ~/bin/yslow.js $*
 }
+
+function git-report {
+  ~/bin/git-weekly-report -g 'Christian Trabold' -l $PWD -p ~/workspace/projects.rb $*
+}
