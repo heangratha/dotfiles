@@ -28,7 +28,7 @@
 	submodule = 1
 [core]
 	editor = vim
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	autocrlf = input
 [push]
 	default = current
