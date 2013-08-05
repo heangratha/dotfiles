@@ -17,7 +17,9 @@ alias vh='vagrant halt'
 alias vhf='vagrant halt --force'
 alias vd='vagrant destroy'
 
-# Find git conflicts in current repo
+# Git
+alias gs='git status'
+## Find git conflicts in current repo
 alias gitc="grep -r -e '<<<<\|>>>>' *"
 
 # Disable deprecation warnings
@@ -25,4 +27,3 @@ alias gitc="grep -r -e '<<<<\|>>>>' *"
 alias ruby="ruby -W0"
 
 alias sub="subl"
-alias csshx="csshX"
