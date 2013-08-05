@@ -3,7 +3,6 @@ let g:solarized_termcolors=16
 let g:NERDTreeWinSize = 40
 
 set t_Co=16
-set clipboard=unnamed
 "set background=light
 "set background=dark
 set showtabline=2
@@ -11,3 +10,8 @@ set showtabline=2
 colorscheme solarized
 syntax enable
 filetype plugin indent on
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+set clipboard=unnamedplus
