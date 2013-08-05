@@ -2,23 +2,23 @@
 # Setup environment
 #
 
+umask 077
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 CASE_SENSITIVE="true"
+DISABLE_AUTO_UPDATE="true"
+export UPDATE_ZSH_DAYS=13
 DISABLE_LS_COLORS="false"
+DISABLE_AUTO_TITLE="true"
+DISABLE_CORRECTION="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 REPORTTIME=10
 TERM=xterm-256color
 
-umask 077
-
 export LANG="en_US.UTF-8"
-
-# Ignore commands starting with a space, duplicates,
-# and a few others.
-export HISTIGNORE="[ ]*:&:bg:fg:ls -l:ls -al:ls -la:ls1:lsa:lsr:gits:gits?"
-
 export GREP_OPTIONS="--color=auto --exclude=\*.svn\* --exclude=\*.git\*"
 
 # Set my git editor
@@ -30,6 +30,6 @@ export VIM_APP_DIR='/usr/bin/vim'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git svn knife rvm)
+plugins=(gitfast git-extras gradle jira knife rvm brew tmux redis-cli)
 
 source $ZSH/oh-my-zsh.sh

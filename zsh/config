@@ -1,10 +1,9 @@
 #
 # Shell config
-# Customize to your needs...
 #
+# @see http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
 
-unsetopt correct_all            # Do NOT correct all commands
-setopt hist_ignore_dups         # ignore repeated commands
+unsetopt correct_all
 
 # Load tmuxinator config
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
