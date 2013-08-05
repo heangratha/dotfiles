@@ -45,6 +45,8 @@ mkdir ~/.janus
 cd !$
 git clone git://github.com/vim-scripts/Auto-Pairs.git
 git clone git://github.com/vim-scripts/Align.git
+git clone git://github.com/vim-scripts/chef.vim.git
+git clone git://github.com/Lokaltog/vim-powerline
 </pre>
 
 ## Install Rubies
