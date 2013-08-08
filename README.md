@@ -27,6 +27,7 @@ ln -s ~/bin/dotfiles/hg/hgignore_global ~/.hgignore_global
 ln -s ~/bin/dotfiles/vimrc.after ~/.vimrc.after
 ln -s ~/bin/dotfiles/vimrc.before ~/.vimrc.before
 ln -s ~/bin/dotfiles/tmuxinator ~/.tmuxinator
+ln -s ~/bin/dotfiles/slate ~/.slate                           # https://github.com/jigish/slate
 
 # Ubuntu only
 ln -s ~/bin/dotfiles/terminator ~/.config/terminator/config
