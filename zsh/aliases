@@ -19,6 +19,7 @@ alias vd='vagrant destroy'
 
 # Git
 alias gs='git status'
+alias gl='git log --format="%Cred %h %Cblue%s %Cgreen%an"'
 ## Find git conflicts in current repo
 alias gitc="grep -r -e '<<<<\|>>>>' *"
 
