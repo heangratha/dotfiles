@@ -27,14 +27,15 @@ alias monitor-external 1440x900
 # APPLICATION ALIASES AND BINDINGS
 # -------------------------------------------------------------------
 
-alias editor 'MacVim'
-bind z:alt;shift focus ${editor}
+alias editor 'Sublime Text'
+bind s:alt;shift focus ${editor}
 
 alias terminal 'iTerm'
 bind x:alt;shift focus ${terminal}
 
-alias browser 'Google Chrome'
-bind c:alt;shift focus ${browser}
+alias browser 'Firefox'
+bind f:alt;shift focus ${browser}
+bind c:alt;shift focus 'Google Chrome'
 
 bind t:${hyper} focus 'Tweetbot'
 
