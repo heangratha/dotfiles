@@ -27,3 +27,4 @@ alias gitc="grep -r -e '<<<<\|>>>>' *"
 alias ruby="ruby -W0"
 
 alias sub="subl"
+alias rake="noglob rake"
