@@ -30,6 +30,6 @@ export VIM_APP_DIR='/usr/bin/vim'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(gitfast git-extras gradle jira knife rvm brew tmux redis-cli)
+plugins=(brew git-extras gitfast gradle jira knife redis-cli rvm tmux vagrant)
 
 source $ZSH/oh-my-zsh.sh
