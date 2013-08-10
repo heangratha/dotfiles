@@ -2,7 +2,6 @@
 
 project_name: development
 project_root: ~/
-#rvm: 1.9.3
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - chef-repo:

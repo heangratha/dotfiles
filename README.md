@@ -52,18 +52,12 @@ git clone git://github.com/Lokaltog/vim-powerline
 
 ## Install Rubies
 
-See
-http://stackoverflow.com/questions/11664835/mountain-lion-rvm-install-1-8-7-x11-error/11666019#11666019
-for details
+See https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x for details.
+
 <pre>
-export CPPFLAGS=-I/opt/X11/include
-CC=/usr/local/bin/gcc-4.2 rvm reinstall 1.8.7
-rvm install jruby
-</pre>
-After that you might want to install Gems:
-<pre>
-rvm use 1.9.3
-gem install bundler --no-ri --no-rdoc
+rbenv install 2.0.0-p247
+rbenv install 1.9.3-p448
+rbenv install jruby-1.7.4
 </pre>
 
 # Kudos
