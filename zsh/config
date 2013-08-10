@@ -3,8 +3,11 @@
 #
 # @see http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
 
+autoload -Uz compinit
+compinit
+
 unsetopt correct_all
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
 eval "$(rbenv init -)"
+[[ -s ~/.tmuxinator/scripts/tmuxinator ]] && . ~/.tmuxinator/scripts/tmuxinator
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
