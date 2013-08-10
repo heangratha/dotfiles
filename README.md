@@ -50,6 +50,12 @@ git clone git://github.com/vim-scripts/chef.vim.git
 git clone git://github.com/Lokaltog/vim-powerline
 </pre>
 
+## Install Autojump
+
+<pre>
+  brew install autojump
+</pre>
+
 ## Install Rubies
 
 See https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x for details.
