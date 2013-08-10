@@ -1,5 +1,8 @@
-# PATH
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+#
+# Setup PATH to make binaries visible
+#
+# @see http://en.wikipedia.org/wiki/PATH_%28variable%29
+#
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:$PATH

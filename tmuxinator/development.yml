@@ -1,4 +1,6 @@
-# ~/.tmuxinator/development.yml
+# Configure environment
+#
+# @see https://github.com/aziz/tmuxinator#create-a-project
 
 project_name: development
 project_root: ~/
