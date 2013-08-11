@@ -1,0 +1,7 @@
+#
+# Defaults for OSX 10.8.x
+#
+
+# Change Mountain Lion’s Save Default Away From iCloud
+# @see http://www.cultofmac.com/188717/change-mountain-lions-save-default-away-from-icloud-video-how-to/
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
