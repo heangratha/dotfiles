@@ -5,17 +5,14 @@
 project_name: development
 project_root: ~/
 #pre: sudo /etc/rc.d/mysqld start
+pre_window: rbenv shell 2.0.0-p247 # Runs in each tab and pane
+#tmux_options: -v -2 # Pass arguments to tmux
 tabs:
   - chef-repo:
       layout: main-horizontal
       panes:
-        - cd ~/chef-repo && vim . && clear
-        - cd ~/chef-repo && clear
-  - chef-repo-vagrant:
-      layout: main-horizontal
-      panes:
-        - cd ~/chef-repo-vagrant && vim . && clear
-        - cd ~/chef-repo-vagrant && clear
+        - cd ~/chef-repo-typo3 && vim . && clear
+        - cd ~/chef-repo-typo3 && clear
   - workspace:
       layout: main-horizontal
       panes:
