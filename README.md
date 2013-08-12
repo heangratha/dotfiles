@@ -13,7 +13,6 @@ git clone https://github.com/ctrabold/dotfiles.git ~/bin/dotfiles
 Now activate the files you want ([re]move if exist):
 <pre>
 ln -s ~/bin/dotfiles/zshrc ~/.zshrc
-ln -s ~/bin/dotfiles/bashrc ~/.bashrc
 ln -s ~/bin/dotfiles/gemrc ~/.gemrc
 ln -s ~/bin/dotfiles/ackrc ~/.ackrc
 ln -s ~/bin/dotfiles/profile ~/.profile
