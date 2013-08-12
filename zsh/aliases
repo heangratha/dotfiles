@@ -2,7 +2,7 @@
 # Aliases
 #
 
-alias ll='ls -lahG'
+alias ll='ls -lahGF'
 alias grep='grep --color=auto'
 alias hosts='vim /etc/hosts'
 alias h='history'
