@@ -27,3 +27,4 @@ alias ruby='ruby -W0'
 
 alias sub='subl'
 alias rake='noglob rake'
+alias knife='nocorrect knife'
