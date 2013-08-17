@@ -40,7 +40,7 @@ bind g:${hyper}  focus 'Things'
 bind i:alt;shift focus 'iTunes'
 bind s:alt;shift focus ${editor}
 bind t:${hyper}  focus 'Tweetbot'
-bind v:cmd;shift focus 'nvALT'
+bind v:${hyper}  focus 'nvALT'
 bind x:alt;shift focus ${terminal}
 
 
