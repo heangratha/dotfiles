@@ -47,6 +47,8 @@ git clone git://github.com/vim-scripts/Auto-Pairs.git
 git clone git://github.com/vim-scripts/Align.git
 git clone git://github.com/vim-scripts/chef.vim.git
 git clone git://github.com/Lokaltog/vim-powerline
+git clone https://github.com/rizzatti/funcoo.vim.git
+git clone https://github.com/rizzatti/dash.vim.git
 </pre>
 
 ## Install Autojump
