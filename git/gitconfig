@@ -2,17 +2,26 @@
 	name = Christian Trabold
 	email = info@christian-trabold.de
 [alias]
+	# @see https://git.wiki.kernel.org/index.php/Aliases
+
+	b = branch
+	ci = commit
+	cl = clone
 	co = checkout
-	# Log display from screencast, with train tracks.
-	#l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	cp = cherry-pick
+	dc = diff --cached
+	diff = diff --word-diff
+	f = "!git ls-files | grep -i"
+	grep = grep -Ii
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
-	# Alternate log display from Scott Chacon
-	lol = log --pretty=oneline --abbrev-commit --graph --decorate
-	# Other useful aliases:
-	unstage = reset HEAD
+	latest = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	s = status
 	staged = diff --cached
-	unstaged = diff
-	current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+	unstage = reset HEAD
+	what = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	who = shortlog -s --
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	standup = "log --since yesterday --author 'Christian Trabold'"
 [apply]
 	whitespace = warn
 [merge]

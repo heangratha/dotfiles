@@ -19,7 +19,7 @@ alias vd='vagrant destroy'
 
 # Git
 alias gs='git status'
-alias gl='git log --format="%Cred %h %Cblue%s %Cgreen%an"'
+alias gl='git l'
 
 # Disable deprecation warnings
 # @see http://stackoverflow.com/questions/5591509/suppress-ruby-warnings-when-running-specs
