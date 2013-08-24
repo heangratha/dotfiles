@@ -4,7 +4,8 @@
 [alias]
 	co = checkout
 	# Log display from screencast, with train tracks.
-	l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	#l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
 	# Alternate log display from Scott Chacon
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	# Other useful aliases:
