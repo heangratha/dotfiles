@@ -16,6 +16,7 @@
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
 	latest = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 	s = status
+	search="git rev-list --all | xargs git grep -F"
 	staged = diff --cached
 	unstage = reset HEAD
 	what = show -s --pretty='tformat:%h (%s, %ad)' --date=short
