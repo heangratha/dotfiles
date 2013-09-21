@@ -9,6 +9,7 @@ alias h='history'
 alias headers='curl -D - -o /dev/null --silent -A firefox'
 alias vimc='rm ~/.vim/_temp/*'
 alias ping='ping -a'
+alias ducks='du -cks *|sort -rn|head -11'
 
 # Vagrant
 alias vp='vagrant provision'
@@ -28,3 +29,4 @@ alias ruby='ruby -W0'
 alias sub='subl'
 alias rake='noglob rake'
 alias knife='nocorrect knife'
+
