@@ -57,6 +57,14 @@ git clone https://github.com/rizzatti/dash.vim.git
   brew install autojump
 </pre>
 
+## Install hightlighter
+
+<pre>
+  brew install highlight
+</pre>
+
+See https://gist.github.com/jimbojsb/1630790
+
 ## Install Rubies
 
 See https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x for details.
