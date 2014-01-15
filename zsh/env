@@ -21,6 +21,7 @@ DEFAULT_USER=$USER
 
 export LANG="en_US.UTF-8"
 export GREP_OPTIONS="--color=auto --exclude=\*.svn\* --exclude=\*.git\*"
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Set my git editor
 export GIT_EDITOR='vim -f'
