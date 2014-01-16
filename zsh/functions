@@ -39,3 +39,8 @@ function copy-highlight {
 function spy () {
   lsof -i -P +c 0 +M | grep -i "$1"
 }
+
+# Pull updates from all git repos below your CWD
+function git-update () {
+  for i in */.git ; do ( cd "${i/\/.*/}" ; git pull ) ; done
+}
