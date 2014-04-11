@@ -70,9 +70,10 @@ See https://gist.github.com/jimbojsb/1630790
 See https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x for details.
 
 <pre>
-rbenv install 2.0.0-p247
-rbenv install 1.9.3-p448
-rbenv install jruby-1.7.4
+rbenv install 1.9.3-p545
+rbenv install 2.0.0-p451
+rbenv install 2.1.1
+rbenv install jruby-1.7.9
 </pre>
 
 # Kudos
