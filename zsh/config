@@ -10,4 +10,7 @@ unsetopt correct_all
 
 eval "$(rbenv init -)"
 [[ -s ~/.tmuxinator/scripts/tmuxinator ]] && . ~/.tmuxinator/scripts/tmuxinator
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+if [[ $OSTYPE == darwin* ]]; then
+  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi
