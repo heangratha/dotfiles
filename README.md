@@ -74,6 +74,8 @@ rbenv install 1.9.3-p545
 rbenv install 2.0.0-p451
 rbenv install 2.1.1
 rbenv install jruby-1.7.9
+
+rbenv global 2.0.0-p451
 </pre>
 
 # Kudos
