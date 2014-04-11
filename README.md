@@ -78,6 +78,18 @@ rbenv install jruby-1.7.9
 rbenv global 2.0.0-p451
 </pre>
 
+
+# Fun
+
+    sudo apt-get install mplayer imagemagick libmagickwand-dev
+    gem install lolcommits
+    lolcommits --enable
+
+
+# Docker
+
+    sudo apt-get install linux-image-extra-`uname -r`
+
 # Kudos
 
 1. These files are heavily inspired by https://peepcode.com/products/advanced-command-line.
