@@ -14,14 +14,14 @@ A set of vim, zsh, git, and tmux configuration files.
 ## Ubuntu
 
 - [`rcm`](http://thoughtbot.github.io/rcm/)
-
+<pre>
     wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.2-2_all.deb
     sudo dpkg -i rcm_1.2.2-2_all.deb
-
+</pre>
 - `terminator`
-
+<pre>
     apt-get install terminator
-
+</pre>
 
 # Install
 
