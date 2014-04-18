@@ -6,8 +6,14 @@
 	"draw_minimap_border": false,
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
+	"font_size": 15,
+	"hide_minimap": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"preview_on_click": true,
 	"rulers":
 	[
@@ -17,6 +23,7 @@
 	"show_encoding": true,
 	"show_full_path": true,
 	"show_line_endings": true,
+	"show_minimap": false,
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"tree_animation_enabled": false,
