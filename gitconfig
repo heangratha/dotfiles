@@ -23,6 +23,7 @@
   who = shortlog -s --
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   standup = "log --since yesterday --author 'Christian Trabold'"
+  report = "log --author='Christian Trabold' --since='1 monday ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges"
 [apply]
   whitespace = warn
 [merge]
