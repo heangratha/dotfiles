@@ -1,7 +1,7 @@
-source $HOME/bin/dotfiles/zsh/env
-source $HOME/bin/dotfiles/zsh/path
-source $HOME/bin/dotfiles/zsh/config
-[[ -s $HOME/bin/dotfiles/zsh/secret ]] && source $HOME/bin/dotfiles/zsh/secret
-source $HOME/bin/dotfiles/zsh/aliases
-source $HOME/bin/dotfiles/zsh/history
-source $HOME/bin/dotfiles/zsh/functions
+source $HOME/dotfiles/zsh/env
+source $HOME/dotfiles/zsh/path
+source $HOME/dotfiles/zsh/config
+[[ -s $HOME/dotfiles/zsh/secret ]] && source $HOME/dotfiles/zsh/secret
+source $HOME/dotfiles/zsh/aliases
+source $HOME/dotfiles/zsh/history
+source $HOME/dotfiles/zsh/functions

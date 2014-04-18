@@ -1,3 +1,3 @@
 [ui]
 username = Christian Trabold <info@christian-trabold.de>
-ignore = $HOME/bin/dotfiles/hg/hgignore_global
+ignore = $HOME/dotfiles/hg/hgignore_global

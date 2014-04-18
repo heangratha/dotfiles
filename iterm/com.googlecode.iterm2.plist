@@ -504,7 +504,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/bin/dotfiles/iterm</string>
+	<string>~/dotfiles/iterm</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -1279,7 +1279,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ctrabold/bin/dotfiles/iterm</string>
+	<string>~/dotfiles/iterm</string>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
