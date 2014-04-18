@@ -54,28 +54,33 @@ You can safely run `rcup` multiple times to update:
 
 [git](http://git-scm.com/) configuration:
 
-*
+* Ignores a global set of files through `~/.gitignore_global`
+* Sets a bunch of `aliases` in ~/.gitconfig`
 
 [Ruby](https://www.ruby-lang.org/en/) configuration:
 
-*
+* Never download documentation for Rubygems
 
 Shell aliases and scripts:
 
-*
+* see `~/.aliases`
 
 [Sublimetext3]() configuration
 
-* Symlink to `~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Ruby.sublime-settings`
+* Symlinks files via `post-up` hook from `sublimetext3` to
+
+    ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
 [tmux](http://robots.thoughtbot.com/a-tmux-crash-course)
 configuration:
 
-*
+* The `tmux` config file is a modified version of from [the tmux book](http://media.pragprog.com/titles/bhtmux/code/workflows/tmux.conf).
 
 [vim](http://www.vim.org/) configuration:
 
-*
+* My vim config is pretty much based on [janus](https://github.com/carlhuda/janus).
+* `colorscheme solarized`
+* `let mapleader = ","`
 
 
 # Make your own customizations
@@ -85,7 +90,6 @@ Put your customizations in dotfiles appended with `.local`:
 * `~/.aliases.local`
 * `~/.gitconfig.local`
 * `~/.tmux.conf.local`
-* `~/.vimrc.local`
 * `~/.zshrc.local`
 
 For example, your `~/.aliases.local` might look like this:
@@ -113,8 +117,6 @@ Your `~/.zshrc.local` might look like this:
 
 1. These files are heavily inspired by [thoughtbot, inc](http://thoughtbot.com/community). Thank you for your inspiring work!
 The initial versions were inspired by the awesome folks at [peepcode](https://peepcode.com/products/advanced-command-line).
-2. The `tmux` config file is a modified version of from [the tmux book](http://media.pragprog.com/titles/bhtmux/code/workflows/tmux.conf).
-`tmux` is awesome - [The `tmux` book](http://pragprog.com/book/bhtmux/tmux) helped me getting used to it and it's fun to read.
+2. `tmux` is awesome - [The `tmux` book](http://pragprog.com/book/bhtmux/tmux) helped me getting used to it and it's fun to read.
 The [`tmuxinator`](https://github.com/aziz/tmuxinator) gem makes `tmux` even more fun!
-3. My vim config is based on [janus](https://github.com/carlhuda/janus).
-4. My zsh config is based on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+3. My zsh config is based on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
