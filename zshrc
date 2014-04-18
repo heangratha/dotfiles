@@ -5,3 +5,6 @@ source $HOME/dotfiles/zsh/config
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 source $HOME/dotfiles/zsh/history
 source $HOME/dotfiles/zsh/functions
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

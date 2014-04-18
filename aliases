@@ -34,3 +34,6 @@ alias knife='nocorrect knife'
 # OS X 10.9 Mavericks
 # alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias flushdns='sudo killall -HUP mDNSResponder'
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
