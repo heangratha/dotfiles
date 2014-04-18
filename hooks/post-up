@@ -221,6 +221,9 @@ if [[ $OSTYPE == darwin* ]]; then
   defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "no"
   defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date"
 
+  # Force all mail to be displayed as plain text.
+  defaults write com.apple.mail PreferPlainText -bool YES
+
 
   ###############################################################################
   # Activity Monitor #
@@ -272,6 +275,25 @@ if [[ $OSTYPE == darwin* ]]; then
   # Enable signing emails by default
   defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool true
 
+
+  ###############################################################################
+  # Preview #
+  ###############################################################################
+
+  # Stop Quicktime and Preview from Auto-Restoring What You Left Open
+  defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+  defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
+
+
+  ###############################################################################
+  # iTunes #
+  ###############################################################################
+
+  #  Changes arrows next to artists and albums to search your library instead of iTunes Store (0 to revert)
+  defaults write com.apple.iTunes invertStoreLinks 1
+
+  # Turn off backups of iPhone/iPod Touch in iTunes during sync (0 to re-enable)
+  defaults write com.apple.iTunes DeviceBackupsDisabled 1
 
 
   # Symlink SublimeText3 settings
