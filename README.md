@@ -20,6 +20,8 @@ A set of vim, zsh, git, and tmux configuration files.
 
 - `terminator`
 
+    apt-get install terminator
+
 
 # Install
 
@@ -41,7 +43,7 @@ Install:
 
 This will create symlinks for config files in your home directory. The `-I`
 option only creates a symlink for the `rcrc` file, which excludes the `README.md`, `LICENSE` and `Brewfile` files, that should not be symlinked.
-We then run `rcup` on all files but with the new exclude patterns from `.rcrc`.
+We then run `rcup` again to create symlinks on all the files but with exclude patterns within `.rcrc`.
 
 You can safely run `rcup` multiple times to update:
 
@@ -105,70 +107,6 @@ Your `~/.zshrc.local` might look like this:
 
     # recommended by brew doctor
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-
-
-# Ubuntu only
-ln -s ~/dotfiles/terminator ~/.config/terminator/config
-
-# Maven only
-ln -s ~/dotfiles/m2/settings.xml ~/.m2/settings.xml
-</pre>
-
-# Other goodies
-
-## Create folder for janus plugins
-
-See https://github.com/carlhuda/janus#customization for details
-<pre>
-mkdir ~/.janus
-cd !$
-git clone git://github.com/vim-scripts/Auto-Pairs.git
-git clone git://github.com/vim-scripts/Align.git
-git clone git://github.com/vim-scripts/chef.vim.git
-git clone git://github.com/Lokaltog/vim-powerline
-git clone https://github.com/rizzatti/funcoo.vim.git
-git clone https://github.com/rizzatti/dash.vim.git
-</pre>
-
-## Install Autojump
-
-<pre>
-  brew install autojump
-</pre>
-
-## Install hightlighter
-
-<pre>
-  brew install highlight
-</pre>
-
-See https://gist.github.com/jimbojsb/1630790
-
-## Install Rubies
-
-See https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x for details.
-
-<pre>
-rbenv install 1.9.3-p545
-rbenv install 2.0.0-p451
-rbenv install 2.1.1
-rbenv install jruby-1.7.9
-
-rbenv global 2.0.0-p451
-</pre>
-
-
-# Fun
-
-    sudo apt-get install mplayer imagemagick libmagickwand-dev
-    gem install lolcommits
-    lolcommits --enable
-
-
-# Docker
-
-    sudo apt-get install linux-image-extra-`uname -r`
 
 
 # Credits
