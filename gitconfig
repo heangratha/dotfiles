@@ -1,47 +1,49 @@
 [user]
-	name = Christian Trabold
-	email = info@christian-trabold.de
+  name = Christian Trabold
+  email = info@christian-trabold.de
 [alias]
-	# @see https://git.wiki.kernel.org/index.php/Aliases
+  # @see https://git.wiki.kernel.org/index.php/Aliases
 
-	b = branch
-	ci = commit
-	cl = clone
-	co = checkout
-	cp = cherry-pick
-	dc = diff --cached
-	diff = diff --word-diff
-	f = "!git ls-files | grep -i"
-	grep = grep -Ii
-	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
-	latest = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	s = status
-	search="git rev-list --all | xargs git grep -F"
-	staged = diff --cached
-	unstage = reset HEAD
-	what = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-	who = shortlog -s --
-	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-	standup = "log --since yesterday --author 'Christian Trabold'"
+  b = branch
+  ci = commit
+  cl = clone
+  co = checkout
+  cp = cherry-pick
+  dc = diff --cached
+  diff = diff --word-diff
+  f = "!git ls-files | grep -i"
+  grep = grep -Ii
+  l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
+  latest = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  s = status
+  search="git rev-list --all | xargs git grep -F"
+  staged = diff --cached
+  unstage = reset HEAD
+  what = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  who = shortlog -s --
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  standup = "log --since yesterday --author 'Christian Trabold'"
 [apply]
-	whitespace = warn
+  whitespace = warn
 [merge]
-	tool = kdiff3
+  tool = kdiff3
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = true
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [status]
-	submodule = 1
+  submodule = 1
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
+  editor = vim
+  excludesfile = ~/.gitignore_global
+  autocrlf = input
 [push]
-	default = current
+  default = current
 [rerere]
-	enabled = 1
+  enabled = 1
+[include]
+  path = .gitconfig.local
