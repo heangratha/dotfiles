@@ -170,13 +170,6 @@ rbenv global 2.0.0-p451
 
     sudo apt-get install linux-image-extra-`uname -r`
 
-# Kudos
-
-
-# Known Issues
-
-* `terminator` on Ubuntu doesn't like the `colorscheme solarized` in `vimrc.after`. Remove it.
-
 
 # Credits
 
