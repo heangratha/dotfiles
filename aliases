@@ -2,21 +2,16 @@
 # Aliases
 #
 
-alias ll='ls -lahGF'
+alias ducks='du -cks *|sort -rn|head -11'
 alias grep='grep --color=auto'
-alias hosts='vim /etc/hosts'
 alias h='history'
 alias headers='curl -D - -o /dev/null --silent -A firefox'
-alias vimc='rm ~/.vim/_temp/*'
+alias hosts='vim /etc/hosts'
+alias ll='ls -lahGF'
+alias mkdir='mkdir -p'
 alias ping='ping -a'
-alias ducks='du -cks *|sort -rn|head -11'
+alias vimc='rm ~/.vim/_temp/*'
 
-# Vagrant
-alias vp='vagrant provision'
-alias vr='vagrant reload'
-alias vh='vagrant halt'
-alias vhf='vagrant halt --force'
-alias vd='vagrant destroy'
 
 # Git
 alias gs='git status'
