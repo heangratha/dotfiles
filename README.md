@@ -23,6 +23,7 @@ A set of vim, zsh, git, and tmux configuration files.
     apt-get install terminator
 </pre>
 
+
 # Install
 
 Set zsh as your login shell:
@@ -31,23 +32,35 @@ Set zsh as your login shell:
 
 Clone onto your laptop:
 
+    cd
     git clone git://github.com/ctrabold/dotfiles.git
+    ln -s dotfiles/rcrc .rcrc
+
+
+## Install (Mac OSX):
 
 Install [rcm](https://github.com/thoughtbot/rcm):
 
     brew bundle dotfiles/Brewfile
+    rcup -v
 
-Install:
 
-    rcup -d dotfiles -I rcrc && rcup
+## Install (Ubuntu):
 
-This will create symlinks for config files in your home directory. The `-I`
-option only creates a symlink for the `rcrc` file, which excludes the `README.md`, `LICENSE` and `Brewfile` files, that should not be symlinked.
+    rcup -v -t ubuntu
+
+
+This will create symlinks for config files in your home directory. The `ln -s dotfiles/rcrc .rcrc`
+command only creates a symlink for the `rcrc` file, which excludes the `README.md`, `LICENSE` and `Brewfile` files, that should not be symlinked.
 We then run `rcup` again to create symlinks on all the files but with exclude patterns within `.rcrc`.
 
-You can safely run `rcup` multiple times to update:
+Make sure you use the `ubuntu` tag when executing this on Ubuntu machines!
+
+You can then safely run `rcup` multiple times to update:
 
     rcup
+    # or this on ubuntu
+    rcup -t ubuntu
 
 
 # What's in it?
