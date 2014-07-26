@@ -1,0 +1,8 @@
+[alias]
+  standup = "log --since yesterday --author 'Christian Trabold'"
+  report = "log --author='Christian Trabold' --since='1 monday ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset' --no-merges"
+[github]
+  user=ctrabold
+[user]
+  name = Christian Trabold
+  email = info@christian-trabold.de
