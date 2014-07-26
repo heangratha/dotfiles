@@ -44,6 +44,7 @@
   editor = vim
   excludesfile = ~/.gitignore_global
   autocrlf = input
+  fileMode = true
 [push]
   default = current
 [rerere]
