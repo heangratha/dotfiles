@@ -1,0 +1,32 @@
+#
+# Aliases
+#
+
+alias ducks='du -cks *|sort -rn|head -11'
+alias grep='grep --color=auto'
+alias h='history'
+alias headers='curl -D - -o /dev/null --silent -A firefox'
+alias hosts='vim /etc/hosts'
+#alias ll='ls -lahGF'
+alias mkdir='mkdir -p'
+alias ping='ping -a'
+alias vimc='rm ~/.vim/_temp/*'
+
+
+# Git
+alias gs='git status'
+alias gl='git l'
+
+# Disable deprecation warnings
+# @see http://stackoverflow.com/questions/5591509/suppress-ruby-warnings-when-running-specs
+alias ruby='ruby -W0'
+
+alias sub='subl'
+alias rake='noglob rake'
+alias knife='nocorrect knife'
+
+# Include custom aliases
+alias sub='sublime'
+alias open='xdg-open'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
