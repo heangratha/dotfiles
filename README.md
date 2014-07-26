@@ -49,7 +49,6 @@ Install [rcm](https://github.com/thoughtbot/rcm):
 
     rcup -v -t ubuntu
 
-
 This will create symlinks for config files in your home directory. The `ln -s dotfiles/rcrc .rcrc`
 command only creates a symlink for the `rcrc` file, which excludes the `README.md`, `LICENSE` and `Brewfile` files, that should not be symlinked.
 We then run `rcup` again to create symlinks on all the files but with exclude patterns within `.rcrc`.
@@ -58,8 +57,6 @@ Make sure you use the `ubuntu` tag when executing this on Ubuntu machines!
 
 You can then safely run `rcup` multiple times to update:
 
-    rcup
-    # or this on ubuntu
     rcup -t ubuntu
 
 
