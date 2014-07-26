@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 if [[ $OSTYPE == darwin* ]]; then
 
@@ -299,9 +299,16 @@ if [[ $OSTYPE == darwin* ]]; then
   # Symlink SublimeText3 settings
   # @see https://www.sublimetext.com/
   # TODO ct 2014-04-18 Check if directory exists to avoid missing dir issues
-  # [[ -d ~/Library/Application\ Support/Sublime\ Text\ 3/ ]]
-  for sublime_settings_file in ~/dotfiles/sublimetext3/*; do
+  # [[ -d $HOME/Library/Application\ Support/Sublime\ Text\ 3/ ]]
+  echo "Symlink sublimetext settings"
+  for sublime_settings_file in $HOME/dotfiles-local/sublime-text-3/*; do
     settings_file_name=${sublime_settings_file##*/}
-    ln -nfs "$sublime_settings_file" ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/"${settings_file_name}"
+    ln -nfs "$sublime_settings_file" $HOME/Library/Application\ Support/Sublime\ Text\ 3/"${settings_file_name}"
+  done
+else
+  echo "Symlink sublimetext settings"
+  for sublime_settings_file in $HOME/dotfiles-local/sublime-text-3/*; do
+    settings_file_name=${sublime_settings_file##*/}
+    ln -nfs "$sublime_settings_file" $HOME/.config/sublime-text-3/"${settings_file_name}"
   done
 fi
