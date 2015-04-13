@@ -29,12 +29,6 @@ function dns-grep {
   dig $* -t AXFR|grep
 }
 
-# Copy highlighted code
-# @see https://gist.github.com/jimbojsb/1630790
-function copy-highlight {
-  highlight --style solarized-dark -W -J 50 -j 3 --line-numbers --font-size 24 -O rtf $* | pbcopy
-}
-
 # Identify and search for active network connections
 function spy () {
   lsof -i -P +c 0 +M | grep -i "$1"
