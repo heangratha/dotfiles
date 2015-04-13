@@ -122,6 +122,10 @@ Your `~/.zshrc.local` might look like this:
     # recommended by brew doctor
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+You can also override the files by storing them inside the `dotfiles-local` folder.
+
+Just use the same filenames as in the `dotfiles` folder to override the default files with your files.
+
 
 # Credits
 
