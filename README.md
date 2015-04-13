@@ -6,10 +6,14 @@ A set of vim, zsh, git, and tmux configuration files.
 # Requirements
 
 - [zsh](http://www.zsh.org/)
+- [`rcm`](http://thoughtbot.github.io/rcm/)
 
 ## Mac OS X
 
 - [Homebrew](https://github.com/Homebrew/homebrew/wiki/Installation)
+
+    brew tap thoughtbot/formulae
+    brew install rcm zsh
 
 ## Ubuntu
 
@@ -18,7 +22,7 @@ A set of vim, zsh, git, and tmux configuration files.
     wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.2-2_all.deb
     sudo dpkg -i rcm_1.2.2-2_all.deb
 </pre>
-- `terminator`
+- `terminator` (optional)
 <pre>
     apt-get install terminator
 </pre>
@@ -37,15 +41,13 @@ Clone onto your laptop:
     ln -s dotfiles/rcrc .rcrc
 
 
-## Install (Mac OSX):
+## Install
 
-Install [rcm](https://github.com/thoughtbot/rcm):
+### Mac OSX:
 
-    brew bundle dotfiles/Brewfile
-    rcup -v
+    rcup -v -t darwin
 
-
-## Install (Ubuntu):
+### Ubuntu:
 
     rcup -v -t ubuntu
 
@@ -77,9 +79,7 @@ Shell aliases and scripts:
 
 [Sublimetext3]() configuration
 
-* Symlinks files via `post-up` hook from `sublimetext3` to
-
-    ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+* Symlinks packages and settings via `post-up` hook
 
 [tmux](http://robots.thoughtbot.com/a-tmux-crash-course)
 configuration:
@@ -88,7 +88,7 @@ configuration:
 
 [vim](http://www.vim.org/) configuration:
 
-* My vim config is pretty much based on [janus](https://github.com/carlhuda/janus).
+* My vim config is based on [janus](https://github.com/carlhuda/janus).
 * `colorscheme solarized`
 * `let mapleader = ","`
 

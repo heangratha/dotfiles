@@ -1,4 +1,4 @@
-EXCLUDES="README.md LICENSE Brewfile Gemfile Gemfile.lock Guardfile iterm osx sublime-text-3 tmuxinator zsh"
+EXCLUDES="README.md LICENSE Gemfile Gemfile.lock Guardfile iterm sublime-text-3 tmuxinator zsh"
 DOTFILES_DIRS="$HOME/dotfiles-local $HOME/dotfiles"
 TAGS="ubuntu"
 SYMLINK_DIRS="vim janus rbenv oh-my-zsh"
