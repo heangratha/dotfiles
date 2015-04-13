@@ -1,11 +1,10 @@
 #!/bin/bash
 
+#
+# Set defaults for OSX 10.8.x
+# @see https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+#
 if [[ $OSTYPE == darwin* ]]; then
-
-  #
-  # Set defaults for OSX 10.8.x
-  # @see https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-  #
 
   ###############################################################################
   # General UI/UX #
@@ -294,21 +293,4 @@ if [[ $OSTYPE == darwin* ]]; then
 
   # Turn off backups of iPhone/iPod Touch in iTunes during sync (0 to re-enable)
   defaults write com.apple.iTunes DeviceBackupsDisabled 1
-
-
-  # Symlink SublimeText3 settings
-  # @see https://www.sublimetext.com/
-  # TODO ct 2014-04-18 Check if directory exists to avoid missing dir issues
-  # [[ -d $HOME/Library/Application\ Support/Sublime\ Text\ 3/ ]]
-  echo "Symlink sublimetext settings"
-  for sublime_settings_file in $HOME/dotfiles-local/sublime-text-3/*; do
-    settings_file_name=${sublime_settings_file##*/}
-    ln -nfs "$sublime_settings_file" $HOME/Library/Application\ Support/Sublime\ Text\ 3/"${settings_file_name}"
-  done
-else
-  echo "Symlink sublimetext settings"
-  for sublime_settings_file in $HOME/dotfiles-local/sublime-text-3/*; do
-    settings_file_name=${sublime_settings_file##*/}
-    ln -nfs "$sublime_settings_file" $HOME/.config/sublime-text-3/"${settings_file_name}"
-  done
 fi
