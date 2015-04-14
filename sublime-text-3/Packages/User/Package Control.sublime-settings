@@ -1,0 +1,31 @@
+{
+	"installed_packages":
+	[
+		"Alignment",
+		"AlignTab",
+		"ApacheConf.tmLanguage",
+		"Clickable URLs",
+		"Color Highlighter",
+		"ColorPicker",
+		"CTags",
+		"Default File Type",
+		"DistractionFreeWindow",
+		"Dockerfile Syntax Highlighting",
+		"Dotfiles Syntax Highlighting",
+		"GitGutter",
+		"GitHub Flavored Markdown Preview",
+		"HTML-CSS-JS Prettify",
+		"INI",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"nginx",
+		"Package Control",
+		"PackageResourceViewer",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json",
+		"TOML",
+		"VAlign"
+	]
+}

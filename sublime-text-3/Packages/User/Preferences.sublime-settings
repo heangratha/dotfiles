@@ -1,0 +1,45 @@
+{
+	"always_show_minimap_viewport": false,
+	"animation_enabled": false,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"draw_minimap_border": false,
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"font_size": 18,
+	"hide_minimap": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Markdown",
+		"Markdown",
+		"Vintage",
+		"SublimeLinter"
+	],
+	"index_exclude_patterns":
+	[
+		"*.log",
+		".vagrant*",
+		"*.sublime*"
+	],
+	"preview_on_click": true,
+	"remember_open_files": false,
+	"rulers":
+	[
+		"80"
+	],
+	"scroll_speed": 5.0,
+	"show_encoding": true,
+	"show_full_path": true,
+	"show_line_endings": true,
+	"show_minimap": false,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"tree_animation_enabled": false,
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true,
+	"word_wrap": false
+}

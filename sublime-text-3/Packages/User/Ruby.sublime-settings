@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+    "feature",
+		"Vagrantfile",
+		"Guardfile"
+	]
+}

@@ -1,4 +1,8 @@
+bin/
+*Control.cache*
+*Control.last-run
+*Control.system-ca-bundle
+*Control.cache*
+*Control.merged-ca-bundle
+*Control.user-ca-bundle
 secret*
-Package\ Control.cache
-Package\ Control.last-run
-Package\ Control.system-ca-bundle
