@@ -98,6 +98,9 @@ if [[ $OSTYPE == darwin* ]]; then
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+  # Disable screensafer
+  defaults -currentHost write com.apple.screensaver idleTime 0
+
   # Save screenshots to a dedicated folder
   defaults write com.apple.screencapture location ~/Pictures/Screenshots
 
