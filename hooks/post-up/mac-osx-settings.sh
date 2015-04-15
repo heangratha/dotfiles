@@ -5,6 +5,7 @@
 # @see https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
 if [[ $OSTYPE == darwin* ]]; then
+  echo "Apply Mac OS X settings"
 
   ###############################################################################
   # General UI/UX #
@@ -433,4 +434,6 @@ if [[ $OSTYPE == darwin* ]]; then
 
   # Prevent Time Machine from prompting to use new hard drives as backup volume
   defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+else
+  echo "No Mac OS detected"
 fi
