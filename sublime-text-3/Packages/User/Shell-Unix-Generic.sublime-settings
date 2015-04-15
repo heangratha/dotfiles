@@ -2,6 +2,7 @@
 	"extensions":
 	[
 		"sh",
-		"bats"
+		"bats",
+		"bat"
 	]
 }
