@@ -1,4 +1,7 @@
 {
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"Alignment",
@@ -9,6 +12,7 @@
 		"ColorPicker",
 		"CTags",
 		"Default File Type",
+		"Diffy",
 		"DistractionFreeWindow",
 		"Dockerfile Syntax Highlighting",
 		"Dotfiles Syntax Highlighting",

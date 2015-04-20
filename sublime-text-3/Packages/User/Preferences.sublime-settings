@@ -13,10 +13,9 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Markdown",
-		"Markdown",
 		"Vintage",
-		"SublimeLinter"
+		"SublimeLinter",
+		"Markdown"
 	],
 	"index_exclude_patterns":
 	[
