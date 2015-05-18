@@ -37,7 +37,7 @@ export VIM_APP_DIR='/usr/bin/vim'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-MY_ZSH_PLUGINS="autojump composer bundler docker extract git-extras gitfast golang jira knife tmux tmuxinator vagrant"
+MY_ZSH_PLUGINS="autojump composer bundler docker extract git-extras gitfast golang gradle jira knife tmux tmuxinator vagrant"
 
 if [[ $OSTYPE == darwin* ]]; then
   MY_ZSH_PLUGINS="${MY_ZSH_PLUGINS} brew"
