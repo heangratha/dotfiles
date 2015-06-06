@@ -14,8 +14,8 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"SublimeLinter",
-		"Vintage"
+		"Vintage",
+		"SublimeLinter"
 	],
 	"index_exclude_patterns":
 	[
