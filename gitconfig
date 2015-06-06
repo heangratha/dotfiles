@@ -48,3 +48,5 @@
   enabled = 1
 [include]
   path = .gitconfig.local
+[credential]
+  helper = osxkeychain
