@@ -1,0 +1,17 @@
+"*":
+  "exception-reporting":
+    userId: "0ec41067-3a52-7fbf-2e1d-e19b5f49256f"
+  welcome:
+    showOnStartup: false
+  core:
+    projectHome: "~/workspace/"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    audioBeep: false
+  editor:
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
