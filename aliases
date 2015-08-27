@@ -22,6 +22,7 @@ alias gl='git l'
 alias ruby='ruby -W0'
 
 alias sub='subl'
+alias subl='atom'
 alias rake='noglob rake'
 alias knife='nocorrect knife'
 
