@@ -10,8 +10,19 @@
       "solarized-dark-syntax"
     ]
     audioBeep: false
+    disabledPackages: [
+      "license-plus"
+    ]
   editor:
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
+    fontSize: 20
+  "vim-mode":
+    startInInsertMode: true
+  "autocomplete-plus":
+    suggestionListFollows: "Cursor"
+  whitespace: {}
+  "tidy-markdown":
+    runOnSave: false
