@@ -32,6 +32,10 @@ fi
 export GIT_EDITOR='vim -f'
 export VIM_APP_DIR='/usr/bin/vim'
 
+# Set up nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Get helpful ruby warnings when calling scripts
 #export RUBYOPT="w"
 
