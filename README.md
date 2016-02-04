@@ -2,6 +2,7 @@
 
 A set of vim, zsh, git, and tmux configuration files.
 
+[![Build Status](https://travis-ci.org/ctrabold/dotfiles.svg?branch=master)](https://travis-ci.org/ctrabold/dotfiles)
 
 # Requirements
 
