@@ -1,6 +1,10 @@
 describe 'Atom log grammar', ->
   grammar = null
 
+  getGrammar = (path, content) ->
+    unless content then content = path; path = null
+    atom.grammars.selectGrammar(path, content).name
+
   beforeEach ->
     waitsForPromise ->
       atom.packages.activatePackage('language-log')
@@ -8,11 +12,20 @@ describe 'Atom log grammar', ->
     runs ->
       grammar = atom.grammars.grammarForScopeName('source.log')
 
+  it 'does not match first line of arbitrary files', ->
+    expect(getGrammar('#!/bin/sh')).not.toBe 'Log'
+    expect(getGrammar('')).not.toBe 'Log'
+    expect(getGrammar('1 2 3')).not.toBe 'Log'
+    expect(getGrammar('\n===')).not.toBe 'Log'
+    expect(getGrammar('Print Guide\n1 2 3')).not.toBe 'Log'
+
   it 'parses the grammar', ->
     expect(grammar).toBeTruthy()
     expect(grammar.scopeName).toBe 'source.log'
 
   it 'parses general grammars', ->
+    expect(getGrammar('12-13 INFO')).toBe 'Log'
+
     line = '(wcp.dll version 0.0.0.6)'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[1]).toEqual value: 'version 0.0.0.6', scopes: ['source.log', 'keyword.log.version']
@@ -21,19 +34,22 @@ describe 'Atom log grammar', ->
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[1]).toEqual value: 'v2.25001', scopes: ['source.log', 'keyword.log.version']
 
-    line = '12-34 This directory z:\\windows\\random\\'
+    line = '12-13 This directory z:\\windows\\random\\'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[2]).toEqual value: 'z:\\windows\\random\\', scopes: ['source.log', 'keyword.log.path.win']
 
-    line = '12-34 WARNING: this is a warning'
+    line = '12-13 WARNING: this is a warning'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[2]).toEqual value: 'WARNING', scopes: ['source.log', 'definition.log.log-warning']
 
-    line = '12-34 Some random <Verbose> text'
+    line = '12-13 Some random <Verbose> text'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[2]).toEqual value: '<Verbose>', scopes: ['source.log', 'definition.log.log-verbose']
 
   it 'parses Android logs', ->
+    expect(getGrammar('11-13 05:51:49.819: E/SoundPool()')).toBe 'Log'
+    expect(getGrammar('04-08 13:11:50.022  26711-26849/com.')).toBe 'Log'
+
     line = '11-13 05:51:49.819: E/SoundPool(): error loading /system/media/audio/ui/Effect_Tick.ogg'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '11-13 05:51:49.819:', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -53,6 +69,8 @@ describe 'Atom log grammar', ->
     expect(tokens[5]).toEqual value: '/system/media/audio/ui/Effect_Tick.ogg', scopes: ['source.log', 'keyword.log.path']
 
   it 'parses iOS logs', ->
+    expect(getGrammar('[2015-09-17 16:37:57 CEST] <main> INFO')).toBe 'Log'
+
     line = 'Incident Identifier: A8111234-3CD8-4FF0-BD99-CFF7FDACB212'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: 'Incident Identifier:', scopes: ['source.log', 'definition.log.log-verbose']
@@ -69,6 +87,8 @@ describe 'Atom log grammar', ->
     expect(tokens[2]).toEqual value: 'DBG-X', scopes: ['source.log', 'definition.log.log-debug']
 
   it 'parses IDEA logs', ->
+    expect(getGrammar('2014-12-11 14:00:36,047 [ 200232]   INFO')).toBe 'Log'
+
     line = '2014-12-11 14:00:36,047 [ 200232]   INFO - ls.idea.gradle.util.GradleUtil - Looking for embedded Maven repo at \'/Applications/Android Studio.app/Contents/gradle/m2repository\' '
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '2014-12-11 14:00:36,047', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -85,24 +105,42 @@ describe 'Atom log grammar', ->
     expect(tokens[3]).toEqual value: 'your-protocol://open?file=file&line=line', scopes: ['source.log', 'keyword.log.url']
 
   it 'parses Apache logs', ->
+    expect(getGrammar('64.242.88.10 - - [07/Mar/2004:16:45:56 -0800]')).toBe 'Log'
+    expect(getGrammar('[07/Mar/2004:16:24:16] "GET /twiki/bin/view/M')).toBe 'Log'
+
+    line = '07/Mar/2004:16:24:16 "GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1" 200 4924'
+    {tokens} = grammar.tokenizeLine(line)
+    expect(tokens[0]).toEqual value: '07/Mar/2004:16:24:16', scopes: ['source.log', 'definition.comment.timestamp.log']
+
+    line = '[07/03/2004:16:24:16] "GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1" 200 4924'
+    {tokens} = grammar.tokenizeLine(line)
+    expect(tokens[0]).toEqual value: '[07/03/2004:16:24:16]', scopes: ['source.log', 'definition.comment.timestamp.log']
+
+    line = '[07/Mar/2004:16:24:16] "GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1" 200 4924'
+    {tokens} = grammar.tokenizeLine(line)
+    expect(tokens[0]).toEqual value: '[07/Mar/2004:16:24:16]', scopes: ['source.log', 'definition.comment.timestamp.log']
+
     line = '64.242.88.10 - - [07/Mar/2004:16:24:16 -0800] "GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1" 200 4924'
     {tokens} = grammar.tokenizeLine(line)
-    expect(tokens[0]).toEqual value: '64.242.88.10 - -', scopes: ['source.log', 'definition.comment.timestamp.log']
-    expect(tokens[2]).toEqual value: '"GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1"', scopes: ['source.log', 'log.string.double']
-    expect(tokens[4]).toEqual value: '200', scopes: ['source.log', 'definition.log.log-success']
+    expect(tokens[0]).toEqual value: '64.242.88.10 - -', scopes: ['source.log']
+    expect(tokens[2]).toEqual value: '[07/Mar/2004:16:24:16 -0800]', scopes: ['source.log', 'definition.comment.timestamp.log']
+    expect(tokens[4]).toEqual value: '"GET /twiki/bin/view/Main/PeterThoeny HTTP/1.1"', scopes: ['source.log', 'log.string.double']
+    expect(tokens[6]).toEqual value: '200', scopes: ['source.log', 'definition.log.log-success']
 
     line = '64.242.88.10 - - [07/Mar/2004:16:45:56 -0800] "GET /twiki/bin/attach/Main/PostfixCommands HTTP/1.1" 401 12846'
     {tokens} = grammar.tokenizeLine(line)
-    expect(tokens[4]).toEqual value: '401', scopes: ['source.log', 'definition.log.log-failed']
+    expect(tokens[6]).toEqual value: '401', scopes: ['source.log', 'definition.log.log-failed']
 
     line = '::1 - - [20/Apr/2015:18:09:10 +0200] "GET / HTTP/1.1" 304 -'
     {tokens} = grammar.tokenizeLine(line)
-    expect(tokens[0]).toEqual value: '::1 - -', scopes: ['source.log', 'definition.comment.timestamp.log']
+    expect(tokens[0]).toEqual value: '::1 - -', scopes: ['source.log']
+    expect(tokens[2]).toEqual value: '[20/Apr/2015:18:09:10 +0200]', scopes: ['source.log', 'definition.comment.timestamp.log']
 
     line = 'localhost - - [21/Apr/2015:09:20:21 +0200] "GET /favicon.ico HTTP/1.1" 404 209'
     {tokens} = grammar.tokenizeLine(line)
-    expect(tokens[0]).toEqual value: 'localhost - -', scopes: ['source.log', 'definition.comment.timestamp.log']
-    expect(tokens[4]).toEqual value: '404', scopes: ['source.log', 'definition.log.log-failed']
+    expect(tokens[0]).toEqual value: 'localhost - -', scopes: ['source.log']
+    expect(tokens[2]).toEqual value: '[21/Apr/2015:09:20:21 +0200]', scopes: ['source.log', 'definition.comment.timestamp.log']
+    expect(tokens[6]).toEqual value: '404', scopes: ['source.log', 'definition.log.log-failed']
 
     line = '[Sun Mar  7 16:02:00 2004] [notice] Accept mutex: sysvsem (Default: sysvsem)'
     {tokens} = grammar.tokenizeLine(line)
@@ -116,6 +154,8 @@ describe 'Atom log grammar', ->
     expect(tokens[5]).toEqual value: '/usr/local/apache/htdocs/M83A', scopes: ['source.log', 'keyword.log.path']
 
   it 'parses Nabto logs', ->
+    expect(getGrammar('141121-14:00:26.095 {00007fff7463f300} [___')).toBe 'Log'
+
     line = '141121-14:00:26.095 {00007fff7463f300} [_______APP,trace] nabto_client_facade.cpp(439):        Got cert \'demo@gmail.com\''
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '141121-14:00:26.095', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -137,6 +177,8 @@ describe 'Atom log grammar', ->
     expect(tokens[6]).toEqual value: 'nabto://demo.nabto.net/wind_speed.json?', scopes: ['source.log', 'keyword.log.url']
 
   it 'parses Adobe logs', ->
+    expect(getGrammar('04/25/15 14:51:34:414 | [INFO] |')).toBe 'Log'
+
     line = '04/25/15 14:51:34:414 | [INFO] |  | OOBE | DE |  |  |  | 2424952 | Visit http://www.adobe.com/go/loganalyzer/ for more information'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '04/25/15 14:51:34:414', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -155,6 +197,8 @@ describe 'Atom log grammar', ->
     expect(tokens[0]).toEqual value: '2015-04-16 14:44:00', scopes: ['source.log', 'definition.comment.timestamp.log']
 
   it 'parses Google logs', ->
+    expect(getGrammar('2015-03-11 21:07:03.094 GoogleSoftwareUpdat')).toBe 'Log'
+
     line = '2015-03-11 21:07:03.094 GoogleSoftwareUpdateAgent[54133/0xb0219000] [lvl=1] -[KSProductsReportingStore updateActivesData:forProductID:withKey:] Updating of actives data started.'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '2015-03-11 21:07:03.094', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -174,9 +218,11 @@ describe 'Atom log grammar', ->
     expect(tokens[2]).toEqual value: '/Users/Random/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle', scopes: ['source.log', 'keyword.log.path']
 
   it 'parses VMWare logs', ->
+    expect(getGrammar('2015-04-23T13:58:41.657+01:00| VMware Fusio')).toBe 'Log'
+
     line = '2015-04-23T13:58:41.657+01:00| VMware Fusion| I120: VTHREAD initialize main thread 4 "VMware Fusion" pid 9824'
     {tokens} = grammar.tokenizeLine(line)
-    expect(tokens[0]).toEqual value: '2015-04-23T13:58:41.657+01:00|', scopes: ['source.log', 'definition.comment.timestamp.log']
+    expect(tokens[0]).toEqual value: '2015-04-23T13:58:41.657+01:00', scopes: ['source.log', 'definition.comment.timestamp.log']
 
   it 'parses SourceForge logs', ->
     line = '[575435.110] Initializing built-in extension Generic Event Extension'
@@ -184,6 +230,8 @@ describe 'Atom log grammar', ->
     expect(tokens[0]).toEqual value: '[575435.110]', scopes: ['source.log', 'definition.comment.timestamp.log']
 
   it 'parses auth logs', ->
+    expect(getGrammar('Apr 28 08:46:03 (72.84) AuthenticationAllow')).toBe 'Log'
+
     line = 'Apr 28 08:46:03 (72.84) AuthenticationAllowed completed: record "Random", result: Success (0).'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: 'Apr 28 08:46:03', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -193,6 +241,8 @@ describe 'Atom log grammar', ->
     expect(tokens[0]).toEqual value: 'Jan 1 12:47:22', scopes: ['source.log', 'definition.comment.timestamp.log']
 
   it 'parses Apple logs', ->
+    expect(getGrammar('Oct 21 09:12:33 Mac.local storeagent[289]')).toBe 'Log'
+
     line = 'Oct 21 09:12:33 Martins-MacBook-Pro.local storeagent[289] <Critical>: -[ISStoreURLOperation _runURLOperation]: _addStandardQueryParametersForURL: https://init.itunes.apple.com/bag.xml?ix=5'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: 'Oct 21 09:12:33', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -210,11 +260,15 @@ describe 'Atom log grammar', ->
     expect(tokens[2]).toEqual value: '“Martin-NET”', scopes: ['source.log', 'log.string.double']
 
   it 'parses ppp vpn logs', ->
+    expect(getGrammar('Thu Oct  9 11:52:14 2014 : IPSec')).toBe 'Log'
+
     line = 'Thu Oct  9 11:52:14 2014 : IPSec connection established'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: 'Thu Oct  9 11:52:14 2014 :', scopes: ['source.log', 'definition.comment.timestamp.log']
 
   it 'parses Windows CBS logs', ->
+    expect(getGrammar('2015-08-14 05:50:12, Info  ')).toBe 'Log'
+
     line = '2015-08-14 05:50:12, Info                  CBS    TI: Last boot time: 2015-08-14 03:49:58.302'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[0]).toEqual value: '2015-08-14 05:50:12', scopes: ['source.log', 'definition.comment.timestamp.log']
@@ -252,3 +306,12 @@ describe 'Atom log grammar', ->
     line = '2011-09-26 09:43:58, Info                  DPX    CreateFileW failed, FileName:\\\\?\\C:\\Windows\\temp\\$dpx$.tmp\\job.xml, Error:0x80070002'
     {tokens} = grammar.tokenizeLine(line)
     expect(tokens[5]).toEqual value: 'C:\\Windows\\temp\\$dpx$.tmp\\job.xml', scopes: ['source.log', 'keyword.log.path.win']
+
+  it 'parses jboss logs', ->
+    expect(getGrammar('18:35:44,633 WARN org.springframework.beans')).toBe 'Log'
+
+    line = "18:35:44,633 WARN org.springframework.beans.factory.support.DisposableBeanAdapter Invocation of destroy method 'close' failed on bean with name 'sqlSession': java.lang.UnsupportedOperationException: Manual close is"
+    {tokens} = grammar.tokenizeLine(line)
+    expect(tokens[0]).toEqual value: '18:35:44,633', scopes: ['source.log', 'definition.comment.timestamp.log']
+    expect(tokens[2]).toEqual value: 'WARN', scopes: ['source.log', 'definition.log.log-warning']
+    expect(tokens[4]).toEqual value: "'close'", scopes: ['source.log', 'log.string.single']

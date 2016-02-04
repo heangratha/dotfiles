@@ -1,6 +1,6 @@
 {
   "name": "language-puppet",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "engines": {
     "atom": "*",
     "node": "*"
@@ -19,10 +19,10 @@
   },
   "readme": "# Puppet language support in Atom\n\nAdd syntax highlighting and snippets to Puppet files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [Puppet TextMate bundle](https://github.com/cburyta/puppet-textmate.tmbundle).\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
   "readmeFilename": "README.md",
-  "_id": "language-puppet@0.15.0",
-  "_shasum": "3f42958e63acb9fb488714c713b3ec7f0d0f805c",
-  "_resolved": "file:../d-115102-84976-19cr2s6/package.tgz",
-  "_from": "../d-115102-84976-19cr2s6/package.tgz",
+  "_id": "language-puppet@0.16.0",
+  "_shasum": "dfadf53406529e0660a2b36c115299d14e6fbf9d",
+  "_resolved": "file:../d-116028-41030-1u8u1oj/package.tgz",
+  "_from": "../d-116028-41030-1u8u1oj/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

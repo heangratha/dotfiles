@@ -1,11 +1,11 @@
 {
   "name": "language-apache",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Syntax and snippet support for Apache configuration files",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jacobbednarz/atom-language-apache"
+    "url": "git+https://github.com/jacobbednarz/atom-language-apache.git"
   },
   "license": "MIT",
   "engines": {
@@ -17,11 +17,11 @@
   "bugs": {
     "url": "https://github.com/jacobbednarz/atom-language-apache/issues"
   },
-  "homepage": "https://github.com/jacobbednarz/atom-language-apache",
-  "_id": "language-apache@1.3.0",
-  "_shasum": "ca8e44e7923c2626d80920d88c2880d6b7715dfd",
-  "_resolved": "file:../d-115725-31206-2ukw1o/package.tgz",
-  "_from": "../d-115725-31206-2ukw1o/package.tgz",
+  "homepage": "https://github.com/jacobbednarz/atom-language-apache#readme",
+  "_id": "language-apache@1.4.0",
+  "_shasum": "2cc1702b72ac79358e2d734b61b98b9adeca9947",
+  "_resolved": "file:../d-116026-31768-z4ngs2/package.tgz",
+  "_from": "../d-116026-31768-z4ngs2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [],

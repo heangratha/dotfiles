@@ -1,7 +1,7 @@
 {
   "name": "language-log",
   "main": "./lib/main",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Log syntax highlighting and filtering",
   "keywords": [
     "log",
@@ -19,23 +19,24 @@
     "atom": ">= 0.100.0"
   },
   "dependencies": {
-    "atom-space-pen-views": "^2.1.0"
+    "atom-space-pen-views": "^2.1.0",
+    "moment": "^2.10.6"
   },
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/MRodalgaard/language-log/issues"
   },
-  "readme": "# Log syntax highlighting and filtering in Atom [![Build Status](https://travis-ci.org/mrodalgaard/language-log.svg)](https://travis-ci.org/mrodalgaard/language-log)\n\nAdds syntax colors for common log formats in [Atom](https://atom.io/) - improving visual grepping.\n\nAlso adds a filtering bottom bar to separate out the statements you are not interested in (can be removed through package config).\n\n![language-log](https://raw.githubusercontent.com/mrodalgaard/language-log/master/screenshots/preview.png)\n\nAn Atom grammar that helps you quickly extract the important parts of various log files.\n\n## Supported formats\n\n * [x] Android LogCat\n * [x] Nabto Log\n * [x] iOS Log / Stack trace\n * [x] Firefox crash log (use json raw dump)\n * [x] IDEA log\n * [x] Apache\n * [x] Syslog\n * [x] Windows CBS logs\n * [x] Common crash logs\n * [x] Common system logs from e.g. ~/Library/Logs/\n\nThere are a whole bunch of standard and non-standard log formats out there. This is an attempt to reach the most common I bump into on a weekly basis.\n\n## Tasks\n\n * [x] Log filtering\n * [x] Show warning on logs above 10,000 lines\n * [ ] Hide filtered lines option\n * [ ] Timestamp search and filtering\n * [ ] Log tail\n * [ ] Dynamically updating\n * [ ] Vertically fold timestamp\n\n## Notes\n\nLog files above 10,000 lines does not get grammar applied according to Atom.\n\nA great companion to this package is [tail](https://github.com/eliasak/tail) for live viewing logs. See [here](https://github.com/mrodalgaard/language-log/issues/1#issue-92097844) for a good way to integrate.\n\n> Contributions, bug reports and feature requests are very welcome.\n\n> &nbsp; &nbsp; _- Martin_\n",
-  "_id": "language-log@1.1.0",
-  "_shasum": "ebd51e40a953683a643316ad50113fccb26bda5a",
-  "_resolved": "file:../d-115102-84965-n3d3as/package.tgz",
-  "_from": "../d-115102-84965-n3d3as/package.tgz",
+  "readme": "# Log syntax highlighting and filtering in Atom [![Build Status](https://travis-ci.org/mrodalgaard/language-log.svg)](https://travis-ci.org/mrodalgaard/language-log)\n\nAdds syntax colors for common log formats in [Atom](https://atom.io/) - improving visual grepping.\n\nAlso adds a filtering bottom bar to separate out the statements you are not interested in (can be removed through package config).\n\n![language-log](https://raw.githubusercontent.com/mrodalgaard/language-log/master/screenshots/preview.png)\n\nAn Atom grammar that helps you quickly extract the important parts of various log files.\n\n## Supported formats\n\n * [x] Android LogCat\n * [x] Nabto Log\n * [x] iOS Log / Stack trace\n * [x] Firefox crash log (use json raw dump)\n * [x] IDEA log\n * [x] Apache\n * [x] Syslog\n * [x] Windows CBS logs\n * [x] Common crash logs\n * [x] Common system logs from e.g. ~/Library/Logs/\n\nThere are a whole bunch of standard and non-standard log formats out there. This is an attempt to reach the most common I bump into on a weekly basis.\n\n## Tasks\n\n * [x] Log filtering\n * [x] Show warning on logs above 10,000 lines\n * [x] Log tail option\n * [ ] Hide filtered lines\n * [ ] Timestamp search and filtering\n * [ ] Dynamically updating\n * [ ] Vertically fold timestamp\n\n## Notes\n\nLog files above 10,000 lines does not get grammar applied according to Atom.\n\n> Contributions, bug reports and feature requests are very welcome.\n\n> &nbsp; &nbsp; _- Martin_\n",
+  "_id": "language-log@1.2.0",
+  "_shasum": "7d35bad99168b5d1d4c088d5f1a863cbeb358295",
+  "_resolved": "file:../d-116026-31795-1vra4d8/package.tgz",
+  "_from": "../d-116026-31795-1vra4d8/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-space-pen-views",
-        "version": "2.1.0",
+        "version": "2.1.1",
         "path": "node_modules/atom-space-pen-views/lib/main.js"
       },
       {
@@ -45,7 +46,7 @@
       },
       {
         "name": "space-pen",
-        "version": "5.1.1",
+        "version": "5.1.2",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/lib/space-pen.js"
       },
       {
@@ -70,7 +71,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.8",
+        "version": "0.10.11",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -80,7 +81,7 @@
       },
       {
         "name": "es6-symbol",
-        "version": "3.0.1",
+        "version": "3.0.2",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/node_modules/es6-symbol/index.js"
       },
       {
@@ -117,6 +118,11 @@
         "name": "underscore",
         "version": "1.6.0",
         "path": "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "moment",
+        "version": "2.11.1",
+        "path": "node_modules/moment/moment.js"
       }
     ],
     "extensions": {
@@ -419,6 +425,8 @@
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/copy.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/count.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/create.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/ensure-natural-number-value.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/eq.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/every.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/filter.js",
@@ -434,6 +442,7 @@
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-copy.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-empty.js",
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-number-value.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-object.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is-plain-object.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/grim/node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/is.js",
@@ -650,7 +659,112 @@
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/jquery/src/wrap.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/lib/underscore-plus.js",
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
-        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+        "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/moment/ender.js",
+        "node_modules/moment/locale/af.js",
+        "node_modules/moment/locale/ar-ma.js",
+        "node_modules/moment/locale/ar-sa.js",
+        "node_modules/moment/locale/ar-tn.js",
+        "node_modules/moment/locale/ar.js",
+        "node_modules/moment/locale/az.js",
+        "node_modules/moment/locale/be.js",
+        "node_modules/moment/locale/bg.js",
+        "node_modules/moment/locale/bn.js",
+        "node_modules/moment/locale/bo.js",
+        "node_modules/moment/locale/br.js",
+        "node_modules/moment/locale/bs.js",
+        "node_modules/moment/locale/ca.js",
+        "node_modules/moment/locale/cs.js",
+        "node_modules/moment/locale/cv.js",
+        "node_modules/moment/locale/cy.js",
+        "node_modules/moment/locale/da.js",
+        "node_modules/moment/locale/de-at.js",
+        "node_modules/moment/locale/de.js",
+        "node_modules/moment/locale/dv.js",
+        "node_modules/moment/locale/el.js",
+        "node_modules/moment/locale/en-au.js",
+        "node_modules/moment/locale/en-ca.js",
+        "node_modules/moment/locale/en-gb.js",
+        "node_modules/moment/locale/en-ie.js",
+        "node_modules/moment/locale/en-nz.js",
+        "node_modules/moment/locale/eo.js",
+        "node_modules/moment/locale/es.js",
+        "node_modules/moment/locale/et.js",
+        "node_modules/moment/locale/eu.js",
+        "node_modules/moment/locale/fa.js",
+        "node_modules/moment/locale/fi.js",
+        "node_modules/moment/locale/fo.js",
+        "node_modules/moment/locale/fr-ca.js",
+        "node_modules/moment/locale/fr-ch.js",
+        "node_modules/moment/locale/fr.js",
+        "node_modules/moment/locale/fy.js",
+        "node_modules/moment/locale/gd.js",
+        "node_modules/moment/locale/gl.js",
+        "node_modules/moment/locale/he.js",
+        "node_modules/moment/locale/hi.js",
+        "node_modules/moment/locale/hr.js",
+        "node_modules/moment/locale/hu.js",
+        "node_modules/moment/locale/hy-am.js",
+        "node_modules/moment/locale/id.js",
+        "node_modules/moment/locale/is.js",
+        "node_modules/moment/locale/it.js",
+        "node_modules/moment/locale/ja.js",
+        "node_modules/moment/locale/jv.js",
+        "node_modules/moment/locale/ka.js",
+        "node_modules/moment/locale/kk.js",
+        "node_modules/moment/locale/km.js",
+        "node_modules/moment/locale/ko.js",
+        "node_modules/moment/locale/lb.js",
+        "node_modules/moment/locale/lo.js",
+        "node_modules/moment/locale/lt.js",
+        "node_modules/moment/locale/lv.js",
+        "node_modules/moment/locale/me.js",
+        "node_modules/moment/locale/mk.js",
+        "node_modules/moment/locale/ml.js",
+        "node_modules/moment/locale/mr.js",
+        "node_modules/moment/locale/ms-my.js",
+        "node_modules/moment/locale/ms.js",
+        "node_modules/moment/locale/my.js",
+        "node_modules/moment/locale/nb.js",
+        "node_modules/moment/locale/ne.js",
+        "node_modules/moment/locale/nl.js",
+        "node_modules/moment/locale/nn.js",
+        "node_modules/moment/locale/pl.js",
+        "node_modules/moment/locale/pt-br.js",
+        "node_modules/moment/locale/pt.js",
+        "node_modules/moment/locale/ro.js",
+        "node_modules/moment/locale/ru.js",
+        "node_modules/moment/locale/se.js",
+        "node_modules/moment/locale/si.js",
+        "node_modules/moment/locale/sk.js",
+        "node_modules/moment/locale/sl.js",
+        "node_modules/moment/locale/sq.js",
+        "node_modules/moment/locale/sr-cyrl.js",
+        "node_modules/moment/locale/sr.js",
+        "node_modules/moment/locale/sv.js",
+        "node_modules/moment/locale/sw.js",
+        "node_modules/moment/locale/ta.js",
+        "node_modules/moment/locale/te.js",
+        "node_modules/moment/locale/th.js",
+        "node_modules/moment/locale/tl-ph.js",
+        "node_modules/moment/locale/tlh.js",
+        "node_modules/moment/locale/tr.js",
+        "node_modules/moment/locale/tzl.js",
+        "node_modules/moment/locale/tzm-latn.js",
+        "node_modules/moment/locale/tzm.js",
+        "node_modules/moment/locale/uk.js",
+        "node_modules/moment/locale/uz.js",
+        "node_modules/moment/locale/vi.js",
+        "node_modules/moment/locale/zh-cn.js",
+        "node_modules/moment/locale/zh-tw.js",
+        "node_modules/moment/min/locales.js",
+        "node_modules/moment/min/locales.min.js",
+        "node_modules/moment/min/moment-with-locales.js",
+        "node_modules/moment/min/moment-with-locales.min.js",
+        "node_modules/moment/min/moment.min.js",
+        "node_modules/moment/min/tests.js",
+        "node_modules/moment/moment.js",
+        "node_modules/moment/package.js"
       ],
       ".json": [
         "node_modules/atom-space-pen-views/node_modules/fuzzaldrin/package.json",
@@ -672,6 +786,7 @@
         "node_modules/atom-space-pen-views/node_modules/space-pen/node_modules/underscore-plus/package.json",
         "node_modules/atom-space-pen-views/node_modules/space-pen/package.json",
         "node_modules/atom-space-pen-views/package.json",
+        "node_modules/moment/package.json",
         "package.json"
       ]
     },
@@ -683,7 +798,8 @@
           "spec"
         ],
         "dependencies": {
-          "atom-space-pen-views": "^2.1.0"
+          "atom-space-pen-views": "^2.1.0",
+          "moment": "^2.10.6"
         }
       },
       {
@@ -693,7 +809,7 @@
         ],
         "dependencies": {
           "fuzzaldrin": "^2.1.0",
-          "space-pen": "^5.0.1"
+          "space-pen": "^5.1.2"
         }
       },
       {
@@ -703,7 +819,7 @@
         ],
         "dependencies": {
           "grim": "^1.0.0",
-          "jquery": "^2.1.3",
+          "jquery": "2.1.4",
           "underscore-plus": "1.x"
         }
       },
@@ -906,7 +1022,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "3"
+          "es6-symbol": "~3.0.2"
         }
       },
       {
@@ -929,7 +1045,7 @@
         ],
         "dependencies": {
           "d": "~0.1.1",
-          "es5-ext": "~0.10.8"
+          "es5-ext": "~0.10.10"
         }
       },
       {

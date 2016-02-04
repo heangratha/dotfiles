@@ -7,7 +7,6 @@ configs        = require '../config'
 describe "Helper", ->
   editor = null
   config = null
-  operatorConfig.add 'aligner', configs
 
   beforeEach ->
     atom.project.setPaths([path.join(__dirname, 'fixtures')])
@@ -16,14 +15,14 @@ describe "Helper", ->
       atom.packages.activatePackage('language-coffee-script')
 
     waitsForPromise ->
-      atom.project.open('helper-sample.coffee').then (o) ->
+      atom.packages.activatePackage('aligner')
+
+    waitsForPromise ->
+      atom.workspace.open('helper-sample.coffee').then (o) ->
         editor = o
 
     runs ->
       config = operatorConfig.getConfig '='
-
-  afterEach ->
-    atom.config.unset('aligner')
 
   describe "getSameIndentationRange", ->
     describe "should include comments", ->

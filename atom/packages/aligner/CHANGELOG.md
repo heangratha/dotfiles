@@ -1,3 +1,12 @@
+## v0.17.4 (2015-12-04)
+- Clean up operator config and make sure config is cleaned up properly on deactivation
+
+## v0.17.3 (2015-11-29)
+- Change throw to console error when re-registering an aligner add-on
+
+## v0.17.2 (2015-11-19)
+- Add `separator` as acceptable scope for `:`
+
 ## v0.17.1 (2015-10-22)
 - Fix not using aligner user config
 

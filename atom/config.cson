@@ -1,28 +1,31 @@
 "*":
-  "exception-reporting":
-    userId: "0ec41067-3a52-7fbf-2e1d-e19b5f49256f"
-  welcome:
-    showOnStartup: false
+  "autocomplete-plus":
+    suggestionListFollows: "Cursor"
   core:
+    audioBeep: false
+    disabledPackages: [
+      "license-plus"
+      "metrics"
+    ]
     projectHome: "~/workspace/"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
-    ]
-    audioBeep: false
-    disabledPackages: [
-      "license-plus"
     ]
   editor:
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    fontSize: 20
-  "vim-mode":
-    startInInsertMode: true
-  "autocomplete-plus":
-    suggestionListFollows: "Cursor"
-  whitespace: {}
+  "exception-reporting":
+    userId: "0ec41067-3a52-7fbf-2e1d-e19b5f49256f"
+  fonts:
+    fontFamily: "FiraCode"
+  "spell-check": {}
   "tidy-markdown":
     runOnSave: false
+  "vim-mode":
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false
+  whitespace: {}
