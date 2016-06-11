@@ -1,9 +1,0 @@
-{
-  "trim_trailing_white_space_on_save": false,
-  "draw_centered": false,
-  "word_wrap": false,
-	"extensions":
-	[
-		"md"
-	]
-}
