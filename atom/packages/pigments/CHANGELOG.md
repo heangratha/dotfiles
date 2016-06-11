@@ -1,3 +1,218 @@
+<a name="v0.29.2"></a>
+# v0.29.2 (2016-06-09)
+
+## Bug Fixes
+
+- Guard against null marker in dot offset update ([8f05eac2](https://github.com/abe33/atom-pigments/commit/8f05eac2ea3f86479e68d45e63558d9fc9032692), [#197](https://github.com/abe33/atom-pigments/issues/197))
+
+<a name="v0.29.1"></a>
+# v0.29.1 (2016-06-01)
+
+## Bug Fixes
+
+- Fix bad text retrieval on stable ([d7f26f3c](https://github.com/abe33/atom-pigments/commit/d7f26f3c5d9e72a51eef54faf15a2c83620fcede), [#196](https://github.com/abe33/atom-pigments/issues/196))
+
+<a name="v0.29.0"></a>
+# v0.29.0 (2016-05-30)
+
+## Features
+
+- Add a border around dot and gutter decorations in a selection ([594d5405](https://github.com/abe33/atom-pigments/commit/594d54055f0c87ab85cf5c4d2fe58c4792a18599))
+
+## Bug Fixes
+
+- Use a single class to deal with decoration in selections ([bca3916f](https://github.com/abe33/atom-pigments/commit/bca3916f1b6836d4b37bf44941314e693a2a545c), [#193](https://github.com/abe33/atom-pigments/issues/193))
+
+<a name="v0.28.4"></a>
+# v0.28.4 (2016-05-29)
+
+## Bug Fixes
+
+- Fix missing noNamePrefix param in variable serialize output ([49b596b5](https://github.com/abe33/atom-pigments/commit/49b596b573ce21db1b5c2fa5d6b5baa649954e02))
+
+<a name="v0.28.3"></a>
+# v0.28.3 (2016-05-29)
+
+## Bug Fixes
+
+- Prevent invalid matches on latex colors ([36662063](https://github.com/abe33/atom-pigments/commit/36662063a6a15704f5fb105c9f66dd9dc6cf5059))
+
+<a name="v0.28.2"></a>
+# v0.28.2 (2016-05-29)
+
+## Bug Fixes
+
+- Fix variables no longer parsed properly ([fccbdeb8](https://github.com/abe33/atom-pigments/commit/fccbdeb8e6b926940f667b37d9d593f158261d10))
+
+<a name="v0.28.1"></a>
+# v0.28.1 (2016-05-29)
+
+## Bug Fixes
+
+- Fix issue when deserialising project ([a870be8a](https://github.com/abe33/atom-pigments/commit/a870be8a2c30160510f3e4e3fddcbe84c2f03949))
+
+<a name="v0.28.0"></a>
+# v0.28.0 (2016-05-29)
+
+## Features
+
+- Implement latex color mixing form ([af6b47ed](https://github.com/abe33/atom-pigments/commit/af6b47ed205bddabae027568f11127557c015ff1), [#174](https://github.com/abe33/atom-pigments/issues/174))
+- Add support for inline latex color ([5b36740d](https://github.com/abe33/atom-pigments/commit/5b36740d9c815b0503c90a74831a5ec25483789d))
+  <br>For [#174](https://github.com/abe33/atom-pigments/issues/174))
+- Implement \definecolor expressions for LaTex ([a21c190f](https://github.com/abe33/atom-pigments/commit/a21c190fba1c79a2e385ef54647eabd36fb34ef3))  <br>Includes a new CMYK expression as well
+  For [#174](https://github.com/abe33/atom-pigments/issues/174))
+
+## Bug Fixes
+
+- Do not suggest alternative sass version ([09851f3f](https://github.com/abe33/atom-pigments/commit/09851f3fc20143e14997168ecf740abeb0137d6e), [#171](https://github.com/abe33/atom-pigments/issues/171))
+- Fix changes not an array on stable ([5e8f7a48](https://github.com/abe33/atom-pigments/commit/5e8f7a4836d62c0dfddf8b84196960c4e3dba5e2), [#194](https://github.com/abe33/atom-pigments/issues/194))
+
+<a name="v0.27.1"></a>
+# v0.27.1 (2016-05-26)
+
+## Bug Fixes
+
+- Fix dot markers not spaced properly ([648c8d3a](https://github.com/abe33/atom-pigments/commit/648c8d3a08df5de8b0e29ede51f3a7ec213a7f61))
+- Fix looping over null changes ([21ca42b4](https://github.com/abe33/atom-pigments/commit/21ca42b496aaf0c76699268a129768d7f3c536eb))
+
+<a name="v0.27.0"></a>
+# v0.27.0 (2016-05-26)
+
+## Features
+
+- Add change listener to update dots offset on changes ([13a8d0f2](https://github.com/abe33/atom-pigments/commit/13a8d0f297159f82efbb49d62136c5009636b2d8))
+- Add a z-index on status bar to avoid dot markers overlap ([28c45df2](https://github.com/abe33/atom-pigments/commit/28c45df29f0f20810039b23d20e6a0406a0fac8a))
+- Add new native decoration types for dot markers ([89c53543](https://github.com/abe33/atom-pigments/commit/89c5354386bbd46f9e2d6cff0d2b7a2c2c2f2f87))
+- Add monkey patch for highlight decorations with text content ([b7b91dac](https://github.com/abe33/atom-pigments/commit/b7b91dacad2ae5a974ec3cbc28ba2889f834fadf))
+- Implement other highlight decorations using native ones ([da9c36d3](https://github.com/abe33/atom-pigments/commit/da9c36d35f0202e4c0091fddc1d6550a21908558))
+
+## Bug Fixes
+
+- Fix legacy decorations not updated on type changes ([8a5b3c8e](https://github.com/abe33/atom-pigments/commit/8a5b3c8e3fb585badb8db5b5738f59c15428a7a6))
+- Fix markers search parameters not passed to findMarkers ([27fe72be](https://github.com/abe33/atom-pigments/commit/27fe72be60d38f66ff14751cb845f5ed6098c181))
+- Fix legacy marker type not honored ([8c71cef7](https://github.com/abe33/atom-pigments/commit/8c71cef7eabe8791480c6b41079250d70f1b7cbd))
+- Guard against null editor path ([535cae73](https://github.com/abe33/atom-pigments/commit/535cae7315e9ccb32a91c76842767857a0705619))
+- Fix for dot markers overlapping text – part of issue #178. ([7ba78c0c](https://github.com/abe33/atom-pigments/commit/7ba78c0cecd36de1bb38b6f02152fc72a38e9fd6))
+
+<a name="v0.26.3"></a>
+# v0.26.3 (2016-05-12)
+
+## Bug Fixes
+
+- Fix remaining deprecations with custom markers properties ([ad9bc229](https://github.com/abe33/atom-pigments/commit/ad9bc229960bc02abd1cc01fc18f9eaa5d07d688))
+
+<a name="v0.26.2"></a>
+# v0.26.2 (2016-05-05)
+
+## Bug Fixes
+
+- Fix issue with API not available yet on stable ([e88d4feb](https://github.com/abe33/atom-pigments/commit/e88d4feb306b640d9d94288c8b7e68bdfe3429bb))
+
+<a name="v0.26.1"></a>
+# v0.26.1 (2016-05-05)
+
+## Bug Fixes
+
+- Fix deprecations ([b4f51775](https://github.com/abe33/atom-pigments/commit/b4f51775b10723cddcad78b51cf82be487c4f532))
+- Fix access to marker displayBuffer reference ([3e17f2f2](https://github.com/abe33/atom-pigments/commit/3e17f2f2ab750059815db80e3112fa785335a515), [#176](https://github.com/abe33/atom-pigments/issues/176))
+
+<a name="v0.26.0"></a>
+# v0.26.0 (2016-03-24)
+
+## Bug Fixes
+
+- Fix infinite loop when parsing expressions ([83204246](https://github.com/abe33/atom-pigments/commit/8320424639a43af871dedb4d857ab4aaaa4bc418))
+- Fix rounding issues when converting to hsl ([128fffc2](https://github.com/abe33/atom-pigments/commit/128fffc29a88683d46fd4f817acd1b4b8b890a86), [#163](https://github.com/abe33/atom-pigments/issues/163))
+- Fix bad scope computed in color context ([6089090d](https://github.com/abe33/atom-pigments/commit/6089090db02a7bf3aa4eaa16b01d57ec47b5b34a))
+
+<a name="v0.25.0"></a>
+# v0.25.0 (2016-03-22)
+
+## Features
+
+- Add HSL conversion commands ([3c512131](https://github.com/abe33/atom-pigments/commit/3c512131d5aae91c038824263c5d943942951f5b), [#161](https://github.com/abe33/atom-pigments/issues/161))
+- Add support for sass variable variations ([b9e9dbe6](https://github.com/abe33/atom-pigments/commit/b9e9dbe6a3bcadba51e4515b3e7ee23e7816c1f1))
+  <br>Variables such as `$some-color` are now also available as `$some_color`
+- Change scopes for SVG names color expression  ([30f2ffee](https://github.com/abe33/atom-pigments/commit/30f2ffeea9be8d7396aa9eae8f6cd72654945cc4), [#153](https://github.com/abe33/atom-pigments/issues/153))
+  <br>Its now limited to CSS and CSS pre-processor files. The supported scopes can be extended through the `extendedFiletypesForColorWords` setting.
+
+## Bug Fixes
+
+- Fix svg color not detected if preceded with > ([941fc7a3](https://github.com/abe33/atom-pigments/commit/941fc7a34f1fb3a5072defb3a5f7b04b0a3dcf97), [#162](https://github.com/abe33/atom-pigments/issues/162))
+- Fix infinite loop when looking for a variable having a circular reference ([80889983](https://github.com/abe33/atom-pigments/commit/80889983d2619137fc892d5487109067f3f87c1b))
+
+<a name="v0.24.5"></a>
+# v0.24.5 (2016-03-09)
+
+## Bug Fixes
+
+- Fix variables followed by !default not matched as color ([7a735c05](https://github.com/abe33/atom-pigments/commit/7a735c05386dd147bcd190b93744397602e9b9c0))
+
+<a name="v0.24.4"></a>
+# v0.24.4 (2016-03-07)
+
+## Bug Fixes
+
+- Fix error when styling undefined regions ([d6118d95](https://github.com/abe33/atom-pigments/commit/d6118d9596f4973ce0fae7a02e9e44ef02c92650))
+- Fix error raised when regions array holds null region ([d3512b9a](https://github.com/abe33/atom-pigments/commit/d3512b9a5cbcd575a99cebf8f0ed0f8cc7fececa))
+
+<a name="v0.24.3"></a>
+# v0.24.3 (2016-03-07)
+
+## Bug Fixes
+
+- Fix issues with less mixing looking like CSS variables ([37cbaed0](https://github.com/abe33/atom-pigments/commit/37cbaed02a9e6e2b1916ae0be49538fa9dd16061), [#157](https://github.com/abe33/atom-pigments/issues/157))
+- Fix invalid scope name computed in scan buffer handler ([edeaf44c](https://github.com/abe33/atom-pigments/commit/edeaf44cab21b555e3424d9710400432bdd42804), [#156](https://github.com/abe33/atom-pigments/issues/156))
+
+<a name="v0.24.2"></a>
+# v0.24.2 (2016-02-29)
+
+## Bug Fixes
+
+- Guard against destroyed project when creating a palette panel ([52187952](https://github.com/abe33/atom-pigments/commit/52187952288a52d4c75690c8a7c6524ea60351d6), [#145](https://github.com/abe33/atom-pigments/issues/145))
+- Fix access to editor shadow root in color buffer element ([39097489](https://github.com/abe33/atom-pigments/commit/39097489fc61788fb8d118026c5ed98b7fd5cac0), [#149](https://github.com/abe33/atom-pigments/issues/149))
+
+<a name="v0.24.1"></a>
+# v0.24.1 (2016-02-16)
+
+## Bug Fixes
+
+- Fix parsing issue in CRLF files ([07117e1f](https://github.com/abe33/atom-pigments/commit/07117e1fe1c5215bc921085dd516ce72d6af6604), [#144](https://github.com/abe33/atom-pigments/issues/144))
+
+<a name="v0.24.0"></a>
+# v0.24.0 (2016-02-15)
+
+## Features
+
+- Add a min-height on search results panel heading ([9959c281](https://github.com/abe33/atom-pigments/commit/9959c28139de48daf5c6c7e2857aa86282ac4aa9))
+- Add a new setting to show color variable value in autocomplete ([3a86e258](https://github.com/abe33/atom-pigments/commit/3a86e258043194b8c4f58b7636ca5dfe0b1418cb))
+
+## Bug Fixes
+
+- Ensure that all custom pane items are serialized on pane split ([0d39d82c](https://github.com/abe33/atom-pigments/commit/0d39d82c192a24bbc3558fc10b9e3f04f79122c5), [#139](https://github.com/abe33/atom-pigments/issues/139))
+
+<a name="v0.23.1"></a>
+# v0.23.1 (2016-02-03)
+
+## Bug Fixes
+
+- Fix variables not recognised by the css color function ([01c4ecc0](https://github.com/abe33/atom-pigments/commit/01c4ecc00ed9dd3da2a80104716341eef3a94d54))
+- Fix css variable value using val instead of var ([4ef2c02a](https://github.com/abe33/atom-pigments/commit/4ef2c02a5e34ad4c76b9f4a7b4948e5e951ac4b8))
+- Fix require and console not available in registry vm context ([ebbeab77](https://github.com/abe33/atom-pigments/commit/ebbeab77969e9b8f4903c64349acceaf1b351f56))
+
+<a name="v0.23.0"></a>
+# v0.23.0 (2016-02-02)
+
+## Features
+
+- Add basic support for css variables ([9bd132c2](https://github.com/abe33/atom-pigments/commit/9bd132c22b3e6d56675a9a6ab9ff77b3f818dca1))
+
+## Bug Fixes
+
+- Fix sass variables with spaces before colon not matched ([1e873a64](https://github.com/abe33/atom-pigments/commit/1e873a6482a8c539ef51537df76b632ad6b1f936), [#106](https://github.com/abe33/atom-pigments/issues/106))
+- Fix files created not caught by pigments as sources ([8345f984](https://github.com/abe33/atom-pigments/commit/8345f98409a24bded06413a6eeced0f99cbd33e2))
+- Fix invalid expression being caught as CSS vars ([2cc123e1](https://github.com/abe33/atom-pigments/commit/2cc123e18d62df044106c3a64dcaab2caa56606d))
+
 <a name="v0.22.1"></a>
 # v0.22.1 (2016-01-27)
 

@@ -1,6 +1,7 @@
 'scopeName': 'source.puppet'
 'fileTypes': [
   'pp'
+  'epp'
 ]
 'foldingStartMarker': '(^\\s*/\\*|(\\{|\\[|\\()\\s*$)'
 'foldingStopMarker': '(\\*/|^\\s*(\\}|\\]|\\)))'
@@ -18,7 +19,7 @@
     'name': 'comment.block.puppet'
   }
   {
-    'begin': '^\\s*(node|class)\\s+((?:[-_A-Za-z0-9".]+::)*[-_A-Za-z0-9".]+)\\s*'
+    'begin': '^\\s*(node|class)\\s+((?:[-_A-Za-z0-9"\'.]+::)*[-_A-Za-z0-9"\'.]+)\\s*'
     'captures':
       '1':
         'name': 'storage.type.puppet'
@@ -123,6 +124,15 @@
     'name': 'meta.definition.resource.puppet'
   }
   {
+    'match': '^\\s*(\\w+)\\s*{\\s*(\\$[a-zA-Z_]+)\\s*:'
+    'captures':
+      '1':
+        'name': 'storage.type.puppet'
+      '2':
+        'name': 'entity.name.section.puppet'
+    'name': 'meta.definition.resource.puppet'
+  }
+  {
     'match': '\\b(case|if|else|elsif)(?!::)\\b'
     'name': 'keyword.control.puppet'
   }
@@ -137,7 +147,7 @@
     'include': '#variable'
   }
   {
-    'begin': '(?i)\\b(import|include)\\b\\s*'
+    'begin': '\\b(import|include|contain|require)\\s+(?!.*=>)'
     'beginCaptures':
       '1':
         'name': 'keyword.control.import.include.puppet'
@@ -153,7 +163,7 @@
     'name': 'constant.other.bareword.puppet'
   }
   {
-    'match': '(?i)\\b(alert|contain|crit|debug|defined|emerg|err|escape|fail|failed|file|generate|gsub|include|info|notice|package|realize|search|tag|tagged|template|warning)\\b'
+    'match': '\\b(alert|crit|debug|defined|emerg|err|escape|fail|failed|file|generate|gsub|info|notice|package|realize|search|tag|tagged|template|warning)\\b(?!.*{)'
     'name': 'support.function.puppet'
   }
   {
@@ -165,7 +175,7 @@
   'constants':
     'patterns': [
       {
-        'match': '(?i)\\b(absent|directory|false|file|present|running|stopped|true)\\b'
+        'match': '\\b(absent|directory|false|file|present|running|stopped|true)\\b(?!.*{)'
         'name': 'constant.language.puppet'
       }
     ]
@@ -401,7 +411,7 @@
         'captures':
           '1':
             'name': 'punctuation.definition.variable.puppet'
-        'match': '(\\$)([a-zA-Zx7f-xff\\$]|::)([a-zA-Z0-9_x7f-xff\\$]|::)*\\b'
+        'match': '(\\$)((::)?[a-z]\\w*)*((::)?[a-z_]\\w*)\\b'
         'name': 'variable.other.readwrite.global.puppet'
       }
       {

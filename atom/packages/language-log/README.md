@@ -28,10 +28,12 @@ There are a whole bunch of standard and non-standard log formats out there. This
  * [x] Log filtering
  * [x] Show warning on logs above 10,000 lines
  * [x] Log tail option
- * [ ] Hide filtered lines
+ * [x] Hide filtered lines
+ * [x] Show number of lines (and filtered)
  * [ ] Timestamp search and filtering
  * [ ] Dynamically updating
- * [ ] Vertically fold timestamp
+ * [ ] Graph / visualization of entry types
+ * [ ] Quick jump to errors
 
 ## Notes
 

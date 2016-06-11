@@ -38,3 +38,9 @@ colorMapping =
   gray: '#A8A8A8'
   yellow: '#F6FF00'
   orange: '#FFAE00'
+
+trailingComments =
+  comment1: 'something' # first comment
+  comment2: 'hi' # second comment
+  # this is a comment only line
+  comment3: 'world' # third comment

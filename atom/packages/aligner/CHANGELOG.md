@@ -1,3 +1,27 @@
+## v0.22.0 (2016-04-29)
+- Fix aligning comment only line throws TypeError
+- Add punctuation as : scope
+
+## v0.21.0 (2016-04-16)
+- Add support for whitespace as separator
+
+## v0.20.0 (2016-04-10)
+- Bump minimum Atom requirement to 1.6.0
+- Fully convert Aligner to JS
+
+## v0.19.1 (2016-02-16)
+- Switch back to function instead of es2015 =>
+
+## v0.19.0 (2016-02-14)
+- Add align trailing comments feature
+
+## v0.18.1 (2016-01-31)
+- Fix tab getting converted to spaces when hiding invisibles
+
+## v0.18.0 (2016-01-29)
+- Minor performance optimization
+- Begin switching to ES2015 Javascript
+
 ## v0.17.4 (2015-12-04)
 - Clean up operator config and make sure config is cleaned up properly on deactivation
 

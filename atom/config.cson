@@ -1,4 +1,8 @@
 "*":
+  "atom-beautify":
+    analytics: false
+    general:
+      _analyticsUserId: "e5be4c08-4684-4cdf-8ddc-62ce5d77eba2"
   "autocomplete-plus":
     suggestionListFollows: "Cursor"
   core:
@@ -6,6 +10,7 @@
     disabledPackages: [
       "license-plus"
       "metrics"
+      "linter-tidy"
     ]
     projectHome: "~/workspace/"
     themes: [
@@ -13,6 +18,7 @@
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -21,6 +27,9 @@
     userId: "0ec41067-3a52-7fbf-2e1d-e19b5f49256f"
   fonts:
     fontFamily: "FiraCode"
+  linter:
+    errorPanelHeight: 295
+  "linter-tidy": {}
   "spell-check": {}
   "tidy-markdown":
     runOnSave: false
@@ -29,3 +38,4 @@
   welcome:
     showOnStartup: false
   whitespace: {}
+  "xml-formatter": {}

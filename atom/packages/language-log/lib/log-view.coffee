@@ -1,9 +1,7 @@
 {View, TextEditorView} = require 'atom-space-pen-views'
 {CompositeDisposable, TextBuffer, Point} = require 'atom'
 
-moment = require 'moment'
-moment.createFromInputFallback = (config) ->
-  config._d = new Date(config._i)
+LogFilter = require './log-filter'
 
 module.exports =
 class LogView extends View
@@ -21,7 +19,8 @@ class LogView extends View
       @header class: 'header', =>
         @span 'Log Filter'
         @span class: 'pull-right', 'Level Filters'
-        @span outlet: 'logInfoText', class: 'log-info-text'
+        @span outlet: 'descriptionLabel', class: 'description'
+        @span outlet: 'descriptionWarningLabel', class: 'description warning'
 
       @section class: 'input-block', =>
         @div class: 'input-block-item input-block-item--flex editor-container', =>
@@ -46,13 +45,18 @@ class LogView extends View
   initialize: ->
     @disposables = new CompositeDisposable
 
+    @logFilter = new LogFilter(@textEditor)
     @tailing = false
-    @setupObjects()
+    @settings =
+      verbose: true
+      info: true
+      debug: true
+      warning: true
+      error: true
+
     @handleEvents()
     @updateButtons()
-    @checkLogSize()
-
-    @textEditor.onDidStopChanging => @tail()
+    @updateDescription()
 
     @disposables.add atom.tooltips.add @filterButton,
       title: "Filter Log Lines"
@@ -76,6 +80,9 @@ class LogView extends View
     @disposables.add atom.commands.add @element,
       'core:cancel': => @focusTextEditor()
 
+    @disposables.add @logFilter.onDidFinishFilter =>
+      @updateDescription()
+
     @filterButton.on 'click', => @confirm()
     @tailButton.on 'click', => @toggleTail()
     @levelVerboseButton.on 'click', => @toggleButton('verbose')
@@ -84,27 +91,18 @@ class LogView extends View
     @levelWarningButton.on 'click', => @toggleButton('warning')
     @levelErrorButton.on 'click', => @toggleButton('error')
 
-    @filterEditorView.getModel().onDidStopChanging => @liveFilter()
+    @filterEditorView.getModel().onDidStopChanging =>
+      @liveFilter()
+
+    @textEditor.onDidStopChanging =>
+      @tail()
+      @updateDescription()
 
     @on 'focus', => @filterEditorView.focus()
 
   destroy: ->
     @disposables.dispose()
-    @removeMarkers()
     @detach()
-
-  setupObjects: ->
-    @settings =
-      verbose: true
-      info: true
-      debug: true
-      warning: true
-      error: true
-
-    @markers =
-      text: []
-      levels: []
-      times: []
 
   toggleTail: ->
     atom.config.set('language-log.tail', !atom.config.get('language-log.tail'))
@@ -114,7 +112,7 @@ class LogView extends View
   toggleButton: (level) ->
     @settings[level] = if @settings[level] then false else true
     @updateButtons()
-    @performLevelFilter(@getFilterScopes())
+    @logFilter.performLevelFilter(@getFilterScopes())
 
   updateButtons: ->
     @tailButton.toggleClass('selected', atom.config.get('language-log.tail'))
@@ -125,63 +123,10 @@ class LogView extends View
     @levelErrorButton.toggleClass('selected', @settings.error)
 
   confirm: ->
-    @performTextFilter(@getFilterRegex())
+    @logFilter.performTextFilter(@filterBuffer.getText())
 
   liveFilter: ->
-    @removeMarkers('text') if @filterBuffer.getText().length is 0
-
-  performTextFilter: (regex) ->
-    return unless buffer = @textEditor.getBuffer()
-
-    @removeMarkers('text')
-    return unless regex
-
-    for line, i in buffer.getLines()
-      unless regex.test(line)
-        @markers.text.push(@filterLine(i))
-
-  performLevelFilter: (scopes) ->
-    return unless buffer = @textEditor.getBuffer()
-
-    @removeMarkers('levels')
-    return unless scopes
-    grammar = @textEditor.getGrammar()
-
-    for line, i in buffer.getLines()
-      tokens = grammar.tokenizeLine(line)
-      if @shouldFilterScopes(tokens, scopes)
-        @markers.levels.push(@filterLine(i))
-
-  # XXX: Experimental log line timestamp extraction
-  #      Not used in production
-  performTimestampFilter: ->
-    return unless buffer = @textEditor.getBuffer()
-
-    for line, i in buffer.getLines()
-      if timestamp = @getLineTimestamp(i)
-        @markers.times[i] = timestamp
-
-  filterLine: (lineNumber) ->
-    # TODO: Hide/fold line completely instead of greying out
-    # TODO: Update minimap
-
-    marker = @textEditor.markBufferPosition([lineNumber, 0])
-    @textEditor.decorateMarker(marker, type: 'line', class: 'log-filtered')
-    return marker
-
-  shouldFilterScopes: (tokens, filterScopes) ->
-    for tag in tokens.tags
-      if scope = tokens.registry.scopeForId(tag)
-        return true if filterScopes.indexOf(scope) isnt -1
-    return false
-
-  getFilterRegex: ->
-    text = @filterBuffer.getText()
-    try
-      new RegExp(text, 'i')
-    catch error
-      atom.notifications.addWarning('Log Language', detail: 'Invalid filter regex')
-      false
+    @logFilter.performTextFilter('') if @filterBuffer.getText().length is 0
 
   getFilterScopes: ->
     scopes = []
@@ -197,57 +142,25 @@ class LogView extends View
       scopes.push 'definition.log.log-error'
     return scopes
 
-  removeMarkers: (type) ->
-    if !type or type is 'text'
-      marker.destroy() for marker in @markers.text
-      @markers.text = []
-    if !type or type is 'levels'
-      marker.destroy() for marker in @markers.levels
-      @markers.levels = []
-
-  getLineTimestamp: (lineNumber) ->
-    for pos in [0..30] by 10
-      point = new Point(lineNumber, pos)
-      range = @textEditor.displayBuffer.bufferRangeForScopeAtPosition('timestamp', point)
-      if range and timestamp = @textEditor.getTextInRange(range)
-        return @parseTimestamp(timestamp)
-
-  parseTimestamp: (timestamp) ->
-    regexes = [
-      /^\d{6}[-\s]/
-      /[0-9]{4}:[0-9]{2}/
-      /[0-9]T[0-9]/
-    ]
-
-    # Remove invalid timestamp characters
-    timestamp = timestamp.replace(/[\[\]]?/g, '')
-    timestamp = timestamp.replace(/\,/g, '.')
-    timestamp = timestamp.replace(/([A-Za-z]*|[-+][0-9]{4}|[-+][0-9]{2}:[0-9]{2})$/, '')
-
-    # Rearrange string to valid timestamp format
-    if part = timestamp.match(regexes[0])?[0]
-      part = "20#{part.substr(0,2)}-#{part.substr(2,2)}-#{part.substr(4,2)} "
-      timestamp = timestamp.replace(regexes[0], part)
-    if timestamp.match(regexes[1])
-      timestamp = timestamp.replace(':', ' ')
-    if index = timestamp.indexOf(regexes[2]) isnt -1
-      timestamp[index+1] = ' '
-
-    # Very small matches are often false positive numbers
-    return false if timestamp.length < 8
-
-    time = moment(timestamp)
-    # Timestamps without year defaults to 2001 - set to current year
-    time.year(moment().year()) if time.year() is 2001
-    time
-
   focusTextEditor: ->
     workspaceElement = atom.views.getView(atom.workspace)
     workspaceElement.focus()
 
-  checkLogSize: ->
-    if @textEditor.getLineCount() > 10000
-      @logInfoText.text '(large file warning)'
+  updateDescription: ->
+    lines = @textEditor.getLineCount()
+    filteredLines = @logFilter.getFilteredCount()
+
+    @descriptionLabel.text(if filteredLines
+      "Showing #{lines - filteredLines} of #{lines} log lines"
+    else
+      "Showing #{lines} log lines"
+    )
+
+    @descriptionWarningLabel.text(if lines > 10000
+      "(large file warning)"
+    else
+      ""
+    )
 
   tail: ->
     return unless atom.config.get('language-log.tail')

@@ -1,0 +1,668 @@
+{
+  "name": "language-elmx",
+  "main": "index.js",
+  "version": "1.2.5",
+  "description": "Syntax highlighting, autocomplete and lint for the Elm language extended with embedded HTML (elmx)",
+  "keywords": [
+    "language",
+    "elm",
+    "elmx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzavolinsky/atom-language-elmx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pzavolinsky/atom-language-elmx/issues"
+  },
+  "homepage": "https://github.com/pzavolinsky/atom-language-elmx",
+  "author": {
+    "name": "Patricio Zavolinsky"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "dependencies": {
+    "elmx": "^1.0.4",
+    "fs": "0.0.2",
+    "path": "^0.12.7",
+    "ramda": "^0.19.1"
+  },
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    },
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    }
+  },
+  "readme": "# language-elmx Atom package\n\nSyntax highlighting, auto-completion and lint for the Elm language extended with embedded HTML ([elmx](https://github.com/pzavolinsky/elmx)).\n\nNote: while this package provides standalone support for [elmx](https://github.com/pzavolinsky/elmx) files, additional functionality such as auto-completion and linting require additional packages. If these packages are not installed this functionality will be disabled.\n\n## Installation\n\n1. `apm install language-elmx`\n1. [Install `language-elm`](https://atom.io/packages/language-elm) - required for auto-completion.\n1. [Install `linter-elm-make`](https://atom.io/packages/linter-elm-make) - required for linting and in-place compilation.\n\n## Credits\n\nThe `elmx` grammar in this package is heavily inspired in the `jsx` grammar from the [react](https://atom.io/packages/react) package and the `html` grammar from the [language-html](https://atom.io/packages/language-html) package.\n\nLinting is provided thanks to [linter-elm-make](https://atom.io/packages/linter-elm-make), this package just pre-compiles the input `.elmx` into `.elm` and then updates the lint results.\n\nAuto-completion is provided thanks to [language-elm](https://atom.io/packages/language-elm), this package just proxies the call to adjust file names.\n",
+  "readmeFilename": "README.md",
+  "_id": "language-elmx@1.2.5",
+  "_shasum": "35b7f10f6f4afc7979760f4ff1a5c3b8c2f968ab",
+  "_resolved": "file:../d-116514-18787-18kgzcx/package.tgz",
+  "_from": "../d-116514-18787-18kgzcx/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "elmx",
+        "version": "1.0.4",
+        "path": "node_modules/elmx/dist/parser.js"
+      },
+      {
+        "name": "htmlparser2",
+        "version": "3.9.1",
+        "path": "node_modules/elmx/node_modules/htmlparser2/lib/index.js"
+      },
+      {
+        "name": "domelementtype",
+        "version": "1.3.0",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/domelementtype/index.js"
+      },
+      {
+        "name": "domhandler",
+        "version": "2.3.0",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/index.js"
+      },
+      {
+        "name": "domutils",
+        "version": "1.5.1",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/index.js"
+      },
+      {
+        "name": "dom-serializer",
+        "version": "0.1.0",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/index.js"
+      },
+      {
+        "name": "domelementtype",
+        "version": "1.1.3",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype/index.js"
+      },
+      {
+        "name": "entities",
+        "version": "1.1.1",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/index.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "readable-stream",
+        "version": "2.1.4",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/readable.js"
+      },
+      {
+        "name": "buffer-shims",
+        "version": "1.0.0",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/buffer-shims/index.js"
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.2",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/lib/util.js"
+      },
+      {
+        "name": "isarray",
+        "version": "1.0.0",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js"
+      },
+      {
+        "name": "process-nextick-args",
+        "version": "1.0.7",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
+      },
+      {
+        "name": "string_decoder",
+        "version": "0.10.31",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js"
+      },
+      {
+        "name": "util-deprecate",
+        "version": "1.0.2",
+        "path": "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/node.js"
+      },
+      {
+        "name": "fs",
+        "version": "0.0.2",
+        "path": "node_modules/fs/index.js"
+      },
+      {
+        "name": "path",
+        "version": "0.12.7",
+        "path": "node_modules/path/path.js"
+      },
+      {
+        "name": "process",
+        "version": "0.11.5",
+        "path": "node_modules/path/node_modules/process/index.js"
+      },
+      {
+        "name": "util",
+        "version": "0.10.3",
+        "path": "node_modules/path/node_modules/util/util.js"
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.1",
+        "path": "node_modules/path/node_modules/util/node_modules/inherits/inherits.js"
+      },
+      {
+        "name": "ramda",
+        "version": "0.19.1",
+        "path": "node_modules/ramda/dist/ramda.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "index.js",
+        "node_modules/elmx/dist/attributes.js",
+        "node_modules/elmx/dist/expression.js",
+        "node_modules/elmx/dist/generator.js",
+        "node_modules/elmx/dist/parser.js",
+        "node_modules/elmx/dist/state.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/CollectingHandler.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/FeedHandler.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/Parser.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/ProxyHandler.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/Stream.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/Tokenizer.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/WritableStream.js",
+        "node_modules/elmx/node_modules/htmlparser2/lib/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domelementtype/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/lib/element.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/lib/node.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/helpers.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/legacy.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/manipulation.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/querying.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/stringify.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib/traversal.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/lib/decode.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/lib/decode_codepoint.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/lib/encode.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/inherits/inherits.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/inherits/inherits_browser.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/inherits/test.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/duplex.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_duplex.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_passthrough.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_readable.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_transform.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib/_stream_writable.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/buffer-shims/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/lib/util.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/test.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/test.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/test.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/browser.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/node.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/passthrough.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/readable.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/transform.js",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/writable.js",
+        "node_modules/fs/index.js",
+        "node_modules/path/node_modules/process/browser.js",
+        "node_modules/path/node_modules/process/index.js",
+        "node_modules/path/node_modules/process/test.js",
+        "node_modules/path/node_modules/util/node_modules/inherits/inherits.js",
+        "node_modules/path/node_modules/util/node_modules/inherits/inherits_browser.js",
+        "node_modules/path/node_modules/util/node_modules/inherits/test.js",
+        "node_modules/path/node_modules/util/support/isBuffer.js",
+        "node_modules/path/node_modules/util/support/isBufferBrowser.js",
+        "node_modules/path/node_modules/util/util.js",
+        "node_modules/path/path.js",
+        "node_modules/ramda/dist/ramda.js",
+        "node_modules/ramda/dist/ramda.min.js",
+        "node_modules/ramda/src/F.js",
+        "node_modules/ramda/src/T.js",
+        "node_modules/ramda/src/__.js",
+        "node_modules/ramda/src/add.js",
+        "node_modules/ramda/src/addIndex.js",
+        "node_modules/ramda/src/adjust.js",
+        "node_modules/ramda/src/all.js",
+        "node_modules/ramda/src/allPass.js",
+        "node_modules/ramda/src/allUniq.js",
+        "node_modules/ramda/src/always.js",
+        "node_modules/ramda/src/and.js",
+        "node_modules/ramda/src/any.js",
+        "node_modules/ramda/src/anyPass.js",
+        "node_modules/ramda/src/ap.js",
+        "node_modules/ramda/src/aperture.js",
+        "node_modules/ramda/src/append.js",
+        "node_modules/ramda/src/apply.js",
+        "node_modules/ramda/src/assoc.js",
+        "node_modules/ramda/src/assocPath.js",
+        "node_modules/ramda/src/binary.js",
+        "node_modules/ramda/src/bind.js",
+        "node_modules/ramda/src/both.js",
+        "node_modules/ramda/src/call.js",
+        "node_modules/ramda/src/chain.js",
+        "node_modules/ramda/src/clone.js",
+        "node_modules/ramda/src/commute.js",
+        "node_modules/ramda/src/commuteMap.js",
+        "node_modules/ramda/src/comparator.js",
+        "node_modules/ramda/src/complement.js",
+        "node_modules/ramda/src/compose.js",
+        "node_modules/ramda/src/composeK.js",
+        "node_modules/ramda/src/composeP.js",
+        "node_modules/ramda/src/concat.js",
+        "node_modules/ramda/src/cond.js",
+        "node_modules/ramda/src/construct.js",
+        "node_modules/ramda/src/constructN.js",
+        "node_modules/ramda/src/contains.js",
+        "node_modules/ramda/src/converge.js",
+        "node_modules/ramda/src/countBy.js",
+        "node_modules/ramda/src/curry.js",
+        "node_modules/ramda/src/curryN.js",
+        "node_modules/ramda/src/dec.js",
+        "node_modules/ramda/src/defaultTo.js",
+        "node_modules/ramda/src/difference.js",
+        "node_modules/ramda/src/differenceWith.js",
+        "node_modules/ramda/src/dissoc.js",
+        "node_modules/ramda/src/dissocPath.js",
+        "node_modules/ramda/src/divide.js",
+        "node_modules/ramda/src/drop.js",
+        "node_modules/ramda/src/dropLast.js",
+        "node_modules/ramda/src/dropLastWhile.js",
+        "node_modules/ramda/src/dropRepeats.js",
+        "node_modules/ramda/src/dropRepeatsWith.js",
+        "node_modules/ramda/src/dropWhile.js",
+        "node_modules/ramda/src/either.js",
+        "node_modules/ramda/src/empty.js",
+        "node_modules/ramda/src/eqBy.js",
+        "node_modules/ramda/src/eqProps.js",
+        "node_modules/ramda/src/equals.js",
+        "node_modules/ramda/src/evolve.js",
+        "node_modules/ramda/src/filter.js",
+        "node_modules/ramda/src/find.js",
+        "node_modules/ramda/src/findIndex.js",
+        "node_modules/ramda/src/findLast.js",
+        "node_modules/ramda/src/findLastIndex.js",
+        "node_modules/ramda/src/flatten.js",
+        "node_modules/ramda/src/flip.js",
+        "node_modules/ramda/src/forEach.js",
+        "node_modules/ramda/src/fromPairs.js",
+        "node_modules/ramda/src/groupBy.js",
+        "node_modules/ramda/src/gt.js",
+        "node_modules/ramda/src/gte.js",
+        "node_modules/ramda/src/has.js",
+        "node_modules/ramda/src/hasIn.js",
+        "node_modules/ramda/src/head.js",
+        "node_modules/ramda/src/identical.js",
+        "node_modules/ramda/src/identity.js",
+        "node_modules/ramda/src/ifElse.js",
+        "node_modules/ramda/src/inc.js",
+        "node_modules/ramda/src/indexBy.js",
+        "node_modules/ramda/src/indexOf.js",
+        "node_modules/ramda/src/init.js",
+        "node_modules/ramda/src/insert.js",
+        "node_modules/ramda/src/insertAll.js",
+        "node_modules/ramda/src/internal/_aperture.js",
+        "node_modules/ramda/src/internal/_arity.js",
+        "node_modules/ramda/src/internal/_arrayFromIterator.js",
+        "node_modules/ramda/src/internal/_checkForMethod.js",
+        "node_modules/ramda/src/internal/_clone.js",
+        "node_modules/ramda/src/internal/_cloneRegExp.js",
+        "node_modules/ramda/src/internal/_complement.js",
+        "node_modules/ramda/src/internal/_concat.js",
+        "node_modules/ramda/src/internal/_contains.js",
+        "node_modules/ramda/src/internal/_containsWith.js",
+        "node_modules/ramda/src/internal/_createPartialApplicator.js",
+        "node_modules/ramda/src/internal/_curry1.js",
+        "node_modules/ramda/src/internal/_curry2.js",
+        "node_modules/ramda/src/internal/_curry3.js",
+        "node_modules/ramda/src/internal/_curryN.js",
+        "node_modules/ramda/src/internal/_dispatchable.js",
+        "node_modules/ramda/src/internal/_dropLast.js",
+        "node_modules/ramda/src/internal/_dropLastWhile.js",
+        "node_modules/ramda/src/internal/_equals.js",
+        "node_modules/ramda/src/internal/_filter.js",
+        "node_modules/ramda/src/internal/_flatCat.js",
+        "node_modules/ramda/src/internal/_forceReduced.js",
+        "node_modules/ramda/src/internal/_functionsWith.js",
+        "node_modules/ramda/src/internal/_has.js",
+        "node_modules/ramda/src/internal/_identity.js",
+        "node_modules/ramda/src/internal/_indexOf.js",
+        "node_modules/ramda/src/internal/_isArguments.js",
+        "node_modules/ramda/src/internal/_isArray.js",
+        "node_modules/ramda/src/internal/_isInteger.js",
+        "node_modules/ramda/src/internal/_isNumber.js",
+        "node_modules/ramda/src/internal/_isObject.js",
+        "node_modules/ramda/src/internal/_isPlaceholder.js",
+        "node_modules/ramda/src/internal/_isRegExp.js",
+        "node_modules/ramda/src/internal/_isString.js",
+        "node_modules/ramda/src/internal/_isTransformer.js",
+        "node_modules/ramda/src/internal/_makeFlat.js",
+        "node_modules/ramda/src/internal/_map.js",
+        "node_modules/ramda/src/internal/_of.js",
+        "node_modules/ramda/src/internal/_pipe.js",
+        "node_modules/ramda/src/internal/_pipeP.js",
+        "node_modules/ramda/src/internal/_quote.js",
+        "node_modules/ramda/src/internal/_reduce.js",
+        "node_modules/ramda/src/internal/_reduced.js",
+        "node_modules/ramda/src/internal/_slice.js",
+        "node_modules/ramda/src/internal/_stepCat.js",
+        "node_modules/ramda/src/internal/_toISOString.js",
+        "node_modules/ramda/src/internal/_toString.js",
+        "node_modules/ramda/src/internal/_xall.js",
+        "node_modules/ramda/src/internal/_xany.js",
+        "node_modules/ramda/src/internal/_xaperture.js",
+        "node_modules/ramda/src/internal/_xchain.js",
+        "node_modules/ramda/src/internal/_xdrop.js",
+        "node_modules/ramda/src/internal/_xdropLast.js",
+        "node_modules/ramda/src/internal/_xdropLastWhile.js",
+        "node_modules/ramda/src/internal/_xdropRepeatsWith.js",
+        "node_modules/ramda/src/internal/_xdropWhile.js",
+        "node_modules/ramda/src/internal/_xfBase.js",
+        "node_modules/ramda/src/internal/_xfilter.js",
+        "node_modules/ramda/src/internal/_xfind.js",
+        "node_modules/ramda/src/internal/_xfindIndex.js",
+        "node_modules/ramda/src/internal/_xfindLast.js",
+        "node_modules/ramda/src/internal/_xfindLastIndex.js",
+        "node_modules/ramda/src/internal/_xgroupBy.js",
+        "node_modules/ramda/src/internal/_xmap.js",
+        "node_modules/ramda/src/internal/_xtake.js",
+        "node_modules/ramda/src/internal/_xtakeWhile.js",
+        "node_modules/ramda/src/internal/_xwrap.js",
+        "node_modules/ramda/src/intersection.js",
+        "node_modules/ramda/src/intersectionWith.js",
+        "node_modules/ramda/src/intersperse.js",
+        "node_modules/ramda/src/into.js",
+        "node_modules/ramda/src/invert.js",
+        "node_modules/ramda/src/invertObj.js",
+        "node_modules/ramda/src/invoker.js",
+        "node_modules/ramda/src/is.js",
+        "node_modules/ramda/src/isArrayLike.js",
+        "node_modules/ramda/src/isEmpty.js",
+        "node_modules/ramda/src/isNil.js",
+        "node_modules/ramda/src/join.js",
+        "node_modules/ramda/src/juxt.js",
+        "node_modules/ramda/src/keys.js",
+        "node_modules/ramda/src/keysIn.js",
+        "node_modules/ramda/src/last.js",
+        "node_modules/ramda/src/lastIndexOf.js",
+        "node_modules/ramda/src/length.js",
+        "node_modules/ramda/src/lens.js",
+        "node_modules/ramda/src/lensIndex.js",
+        "node_modules/ramda/src/lensPath.js",
+        "node_modules/ramda/src/lensProp.js",
+        "node_modules/ramda/src/lift.js",
+        "node_modules/ramda/src/liftN.js",
+        "node_modules/ramda/src/lt.js",
+        "node_modules/ramda/src/lte.js",
+        "node_modules/ramda/src/map.js",
+        "node_modules/ramda/src/mapAccum.js",
+        "node_modules/ramda/src/mapAccumRight.js",
+        "node_modules/ramda/src/mapObjIndexed.js",
+        "node_modules/ramda/src/match.js",
+        "node_modules/ramda/src/mathMod.js",
+        "node_modules/ramda/src/max.js",
+        "node_modules/ramda/src/maxBy.js",
+        "node_modules/ramda/src/mean.js",
+        "node_modules/ramda/src/median.js",
+        "node_modules/ramda/src/memoize.js",
+        "node_modules/ramda/src/merge.js",
+        "node_modules/ramda/src/mergeAll.js",
+        "node_modules/ramda/src/mergeWith.js",
+        "node_modules/ramda/src/mergeWithKey.js",
+        "node_modules/ramda/src/min.js",
+        "node_modules/ramda/src/minBy.js",
+        "node_modules/ramda/src/modulo.js",
+        "node_modules/ramda/src/multiply.js",
+        "node_modules/ramda/src/nAry.js",
+        "node_modules/ramda/src/negate.js",
+        "node_modules/ramda/src/none.js",
+        "node_modules/ramda/src/not.js",
+        "node_modules/ramda/src/nth.js",
+        "node_modules/ramda/src/nthArg.js",
+        "node_modules/ramda/src/objOf.js",
+        "node_modules/ramda/src/of.js",
+        "node_modules/ramda/src/omit.js",
+        "node_modules/ramda/src/once.js",
+        "node_modules/ramda/src/or.js",
+        "node_modules/ramda/src/over.js",
+        "node_modules/ramda/src/pair.js",
+        "node_modules/ramda/src/partial.js",
+        "node_modules/ramda/src/partialRight.js",
+        "node_modules/ramda/src/partition.js",
+        "node_modules/ramda/src/path.js",
+        "node_modules/ramda/src/pathEq.js",
+        "node_modules/ramda/src/pathOr.js",
+        "node_modules/ramda/src/pathSatisfies.js",
+        "node_modules/ramda/src/pick.js",
+        "node_modules/ramda/src/pickAll.js",
+        "node_modules/ramda/src/pickBy.js",
+        "node_modules/ramda/src/pipe.js",
+        "node_modules/ramda/src/pipeK.js",
+        "node_modules/ramda/src/pipeP.js",
+        "node_modules/ramda/src/pluck.js",
+        "node_modules/ramda/src/prepend.js",
+        "node_modules/ramda/src/product.js",
+        "node_modules/ramda/src/project.js",
+        "node_modules/ramda/src/prop.js",
+        "node_modules/ramda/src/propEq.js",
+        "node_modules/ramda/src/propIs.js",
+        "node_modules/ramda/src/propOr.js",
+        "node_modules/ramda/src/propSatisfies.js",
+        "node_modules/ramda/src/props.js",
+        "node_modules/ramda/src/range.js",
+        "node_modules/ramda/src/reduce.js",
+        "node_modules/ramda/src/reduceRight.js",
+        "node_modules/ramda/src/reduced.js",
+        "node_modules/ramda/src/reject.js",
+        "node_modules/ramda/src/remove.js",
+        "node_modules/ramda/src/repeat.js",
+        "node_modules/ramda/src/replace.js",
+        "node_modules/ramda/src/reverse.js",
+        "node_modules/ramda/src/scan.js",
+        "node_modules/ramda/src/sequence.js",
+        "node_modules/ramda/src/set.js",
+        "node_modules/ramda/src/slice.js",
+        "node_modules/ramda/src/sort.js",
+        "node_modules/ramda/src/sortBy.js",
+        "node_modules/ramda/src/split.js",
+        "node_modules/ramda/src/splitAt.js",
+        "node_modules/ramda/src/splitEvery.js",
+        "node_modules/ramda/src/splitWhen.js",
+        "node_modules/ramda/src/subtract.js",
+        "node_modules/ramda/src/sum.js",
+        "node_modules/ramda/src/symmetricDifference.js",
+        "node_modules/ramda/src/symmetricDifferenceWith.js",
+        "node_modules/ramda/src/tail.js",
+        "node_modules/ramda/src/take.js",
+        "node_modules/ramda/src/takeLast.js",
+        "node_modules/ramda/src/takeLastWhile.js",
+        "node_modules/ramda/src/takeWhile.js",
+        "node_modules/ramda/src/tap.js",
+        "node_modules/ramda/src/test.js",
+        "node_modules/ramda/src/times.js",
+        "node_modules/ramda/src/toLower.js",
+        "node_modules/ramda/src/toPairs.js",
+        "node_modules/ramda/src/toPairsIn.js",
+        "node_modules/ramda/src/toString.js",
+        "node_modules/ramda/src/toUpper.js",
+        "node_modules/ramda/src/transduce.js",
+        "node_modules/ramda/src/transpose.js",
+        "node_modules/ramda/src/traverse.js",
+        "node_modules/ramda/src/trim.js",
+        "node_modules/ramda/src/type.js",
+        "node_modules/ramda/src/unapply.js",
+        "node_modules/ramda/src/unary.js",
+        "node_modules/ramda/src/uncurryN.js",
+        "node_modules/ramda/src/unfold.js",
+        "node_modules/ramda/src/union.js",
+        "node_modules/ramda/src/unionWith.js",
+        "node_modules/ramda/src/uniq.js",
+        "node_modules/ramda/src/uniqBy.js",
+        "node_modules/ramda/src/uniqWith.js",
+        "node_modules/ramda/src/unless.js",
+        "node_modules/ramda/src/unnest.js",
+        "node_modules/ramda/src/update.js",
+        "node_modules/ramda/src/useWith.js",
+        "node_modules/ramda/src/values.js",
+        "node_modules/ramda/src/valuesIn.js",
+        "node_modules/ramda/src/view.js",
+        "node_modules/ramda/src/when.js",
+        "node_modules/ramda/src/where.js",
+        "node_modules/ramda/src/whereEq.js",
+        "node_modules/ramda/src/without.js",
+        "node_modules/ramda/src/wrap.js",
+        "node_modules/ramda/src/xprod.js",
+        "node_modules/ramda/src/zip.js",
+        "node_modules/ramda/src/zipObj.js",
+        "node_modules/ramda/src/zipWith.js"
+      ],
+      ".json": [
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domelementtype/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/maps/decode.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/maps/entities.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/maps/legacy.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/maps/xml.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/entities/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/inherits/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/buffer-shims/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/core-util-is/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/component.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/package.json",
+        "node_modules/elmx/node_modules/htmlparser2/package.json",
+        "node_modules/elmx/package.json",
+        "node_modules/fs/package.json",
+        "node_modules/path/node_modules/process/package.json",
+        "node_modules/path/node_modules/util/node_modules/inherits/package.json",
+        "node_modules/path/node_modules/util/package.json",
+        "node_modules/path/package.json",
+        "node_modules/ramda/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          ""
+        ],
+        "dependencies": {
+          "elmx": "^1.0.4",
+          "fs": "0.0.2",
+          "path": "^0.12.7",
+          "ramda": "^0.19.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/dist",
+          "node_modules/elmx"
+        ],
+        "dependencies": {
+          "htmlparser2": "^3.9.0",
+          "ramda": "^0.19.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/node_modules/htmlparser2/lib",
+          "node_modules/elmx/node_modules/htmlparser2"
+        ],
+        "dependencies": {
+          "domelementtype": "^1.3.0",
+          "domhandler": "^2.3.0",
+          "domutils": "^1.5.1",
+          "entities": "^1.1.1",
+          "inherits": "^2.0.1",
+          "readable-stream": "^2.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/lib",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/test/cases",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domhandler/test"
+        ],
+        "dependencies": {
+          "domelementtype": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/lib",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/test",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/test/tests"
+        ],
+        "dependencies": {
+          "dom-serializer": "0",
+          "domelementtype": "1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer"
+        ],
+        "dependencies": {
+          "domelementtype": "~1.1.1",
+          "entities": "~1.1.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream",
+          "node_modules/elmx/node_modules/htmlparser2/node_modules/readable-stream/lib"
+        ],
+        "dependencies": {
+          "buffer-shims": "^1.0.0",
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "~1.0.0",
+          "process-nextick-args": "~1.0.6",
+          "string_decoder": "~0.10.x",
+          "util-deprecate": "~1.0.1"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/path"
+        ],
+        "dependencies": {
+          "process": "^0.11.1",
+          "util": "^0.10.3"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/path/node_modules/util",
+          "node_modules/path/node_modules/util/support",
+          "node_modules/path/node_modules/util/test/browser",
+          "node_modules/path/node_modules/util/test/node"
+        ],
+        "dependencies": {
+          "inherits": "2.0.1"
+        }
+      }
+    ]
+  }
+}

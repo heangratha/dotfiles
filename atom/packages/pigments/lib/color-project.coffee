@@ -1,5 +1,5 @@
-{Emitter, CompositeDisposable, Range} = require 'atom'
 minimatch = require 'minimatch'
+{Emitter, CompositeDisposable, Range} = require 'atom'
 
 {SERIALIZE_VERSION, SERIALIZE_MARKERS_VERSION} = require './versions'
 {THEME_VARIABLES} = require './uris'
@@ -87,6 +87,8 @@ module.exports =
 class ColorProject
   @deserialize: (state) ->
     markersVersion = SERIALIZE_MARKERS_VERSION
+    markersVersion += '-dev' if atom.inDevMode() and atom.project.getPaths().some (p) -> p.match(/\/pigments$/)
+
     if state?.version isnt SERIALIZE_VERSION
       state = {}
 
@@ -142,6 +144,15 @@ class ColorProject
 
     @subscriptions.add atom.config.observe 'pigments.ignoreVcsIgnoredPaths', =>
       @loadPathsAndVariables()
+
+    svgColorExpression = @colorExpressionsRegistry.getExpression('pigments:named_colors')
+    defaultScopes = svgColorExpression.scopes.slice()
+    @subscriptions.add atom.config.observe 'pigments.extendedFiletypesForColorWords', (scopes) =>
+      svgColorExpression.scopes = defaultScopes.concat(scopes)
+      @colorExpressionsRegistry.emitter.emit 'did-update-expressions', {
+        name: svgColorExpression.name
+        registry: @colorExpressionsRegistry
+      }
 
     @subscriptions.add @colorExpressionsRegistry.onDidUpdateExpressions ({name}) =>
       return if not @paths? or name is 'pigments:variables'
@@ -269,7 +280,8 @@ class ColorProject
 
   initializeBuffers: ->
     @subscriptions.add atom.workspace.observeTextEditors (editor) =>
-      return if @isBufferIgnored(editor.getPath())
+      editorPath = editor.getPath()
+      return if not editorPath? or @isBufferIgnored(editorPath)
 
       buffer = @colorBufferForEditor(editor)
       if buffer?
@@ -345,6 +357,8 @@ class ColorProject
   getPaths: -> @paths?.slice()
 
   appendPath: (path) -> @paths.push(path) if path?
+
+  hasPath: (path) -> path in (@paths ? [])
 
   loadPaths: (noKnownPaths=false) ->
     new Promise (resolve, reject) =>
@@ -549,7 +563,8 @@ class ColorProject
       if /\/\*$/.test(p) then p + '*' else p
 
   setIgnoredNames: (@ignoredNames=[]) ->
-    return if not @initialized? and not @initializePromise?
+    if not @initialized? and not @initializePromise?
+      return Promise.reject('Project is not initialized yet')
 
     @initialize().then =>
       dirtied = @paths.filter (p) => @isIgnoredPath(p)

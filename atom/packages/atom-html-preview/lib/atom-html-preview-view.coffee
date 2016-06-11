@@ -16,7 +16,10 @@ class AtomHtmlPreviewView extends ScrollView
     new AtomHtmlPreviewView(state)
 
   @content: ->
-    @div class: 'atom-html-preview native-key-bindings', tabindex: -1
+    @div class: 'atom-html-preview native-key-bindings', tabindex: -1, =>
+      style = 'z-index: 2; padding: 2em;'
+      @div class: 'show-error', style: style
+      @div class: 'show-loading', style: style, "Loading HTML"
 
   constructor: ({@editorId, filePath}) ->
     super
@@ -32,6 +35,18 @@ class AtomHtmlPreviewView extends ScrollView
         atom.packages.onDidActivatePackage =>
           @subscribeToFilePath(filePath)
 
+    # Disable pointer-events while resizing
+    handles = $("atom-pane-resize-handle")
+    handles.on 'mousedown', => @onStartedResize()
+
+  onStartedResize: ->
+    @css 'pointer-events': 'none'
+    document.addEventListener 'mouseup', @onStoppedResizing.bind this
+
+  onStoppedResizing: ->
+    @css 'pointer-events': 'all'
+    document.removeEventListener 'mouseup', @onStoppedResizing
+
   serialize: ->
     deserializer : 'AtomHtmlPreviewView'
     filePath     : @getPath()
@@ -39,7 +54,8 @@ class AtomHtmlPreviewView extends ScrollView
 
   destroy: ->
     # @unsubscribe()
-    @editorSub.dispose()
+    if editorSub?
+      @editorSub.dispose()
 
   subscribeToFilePath: (filePath) ->
     @trigger 'title-changed'
@@ -72,6 +88,21 @@ class AtomHtmlPreviewView extends ScrollView
     null
 
   handleEvents: =>
+    contextMenuClientX = 0
+    contextMenuClientY = 0
+
+    @on 'contextmenu', (event) ->
+      contextMenuClientY = event.clientY
+      contextMenuClientX = event.clientX
+
+    atom.commands.add @element,
+      'atom-html-preview:open-devtools': =>
+        @webview.openDevTools()
+      'atom-html-preview:inspect': =>
+        @webview.inspectElement(contextMenuClientX, contextMenuClientY)
+      'atom-html-preview:print': =>
+        @webview.print()
+
 
     changeHandler = =>
       @renderHTML()
@@ -91,27 +122,71 @@ class AtomHtmlPreviewView extends ScrollView
   renderHTML: ->
     @showLoading()
     if @editor?
-      @renderHTMLCode()
+      if not atom.config.get("atom-html-preview.triggerOnSave") && @editor.getPath()?
+        @save(@renderHTMLCode)
+      else
+        @renderHTMLCode()
 
   save: (callback) ->
     # Temp file path
-    outPath = path.resolve os.tmpdir() + @editor.getTitle()
-    # Add base tag; allow relative links to work despite being loaded
-    # as the src of an iframe
-    out = "<base href=\"" + @getPath() + "\">" + @editor.getText()
-    @tmpPath = outPath
-    fs.writeFile outPath, out, callback
+    outPath = path.resolve path.join(os.tmpdir(), @editor.getTitle() + ".html")
+    out = ""
+    fileEnding = @editor.getTitle().split(".").pop()
 
-  renderHTMLCode: (text) ->
-    if not atom.config.get("atom-html-preview.triggerOnSave") and @editor.getPath()? then @save () =>
-      iframe = document.createElement("iframe")
+    if atom.config.get("atom-html-preview.enableMathJax")
+      out += """
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['\\\\f$','\\\\f$']]},
+      menuSettings: {zoom: 'Click'}
+      });
+      </script>
+      <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      </script>
+      """
+
+    if atom.config.get("atom-html-preview.preserveWhiteSpaces") and fileEnding in atom.config.get("atom-html-preview.fileEndings")
+      # Enclose in <pre> statement to preserve whitespaces
+      out += """
+      <style type="text/css">
+      body { white-space: pre; }
+      </style>
+      """
+    else
+      # Add base tag; allow relative links to work despite being loaded
+      # as the src of an webview
+      out += "<base href=\"" + @getPath() + "\">"
+
+    out += @editor.getText()
+
+    @tmpPath = outPath
+    fs.writeFile outPath, out, =>
+      try
+        @renderHTMLCode()
+      catch error
+        @showError error
+
+  renderHTMLCode: () ->
+    unless @webview?
+      webview = document.createElement("webview")
       # Fix from @kwaak (https://github.com/webBoxio/atom-html-preview/issues/1/#issuecomment-49639162)
       # Allows for the use of relative resources (scripts, styles)
-      iframe.setAttribute("sandbox", "allow-scripts allow-same-origin")
-      iframe.src = @tmpPath
-      @html $ iframe
-      # @trigger('atom-html-preview:html-changed')
-      atom.commands.dispatch 'atom-html-preview', 'html-changed'
+      webview.setAttribute("sandbox", "allow-scripts allow-same-origin")
+      @webview = webview
+      @append $ webview
+
+    @webview.src = @tmpPath
+    try
+      @find('.show-error').hide()
+      @find('.show-loading').hide()
+      @webview.reload()
+
+    catch error
+      null
+
+    # @trigger('atom-html-preview:html-changed')
+    atom.commands.dispatch 'atom-html-preview', 'html-changed'
 
   getTitle: ->
     if @editor?
@@ -129,10 +204,11 @@ class AtomHtmlPreviewView extends ScrollView
   showError: (result) ->
     failureMessage = result?.message
 
-    @html $$$ ->
+    @find('.show-error')
+    .html $$$ ->
       @h2 'Previewing HTML Failed'
       @h3 failureMessage if failureMessage?
+    .show()
 
   showLoading: ->
-    @html $$$ ->
-      @div class: 'atom-html-spinner', 'Loading HTML Preview\u2026'
+    @find('.show-loading').show()
