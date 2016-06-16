@@ -46,7 +46,7 @@ source $(brew --prefix nvm)/nvm.sh
 MY_ZSH_PLUGINS="autojump composer bundler docker extract git-extras gitfast golang gradle jira knife mvn mix puppet tmux tmuxinator vagrant"
 
 if [[ $OSTYPE == darwin* ]]; then
-  MY_ZSH_PLUGINS="${MY_ZSH_PLUGINS} brew"
+  MY_ZSH_PLUGINS="${MY_ZSH_PLUGINS} brew osx"
 fi
 
 plugins=(`echo ${MY_ZSH_PLUGINS}`)
