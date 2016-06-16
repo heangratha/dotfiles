@@ -128,6 +128,10 @@ You can also override the files by storing them inside the `dotfiles-local` fold
 Just use the same filenames as in the `dotfiles` folder to override the default files with your files.
 
 
+# Install atom packages
+
+    apm install --packages-file package-list.txt
+
 # Credits
 
 1. These files are heavily inspired by [thoughtbot, inc](http://thoughtbot.com/community). Thank you for your inspiring work!
