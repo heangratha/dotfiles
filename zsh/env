@@ -30,6 +30,7 @@ else
 fi
 
 # Set my git editor
+export EDITOR='vim -f'
 export GIT_EDITOR='vim -f'
 export VIM_APP_DIR='/usr/bin/vim'
 
