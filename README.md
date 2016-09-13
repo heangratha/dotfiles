@@ -13,7 +13,7 @@ A set of vim, zsh, git, and tmux configuration files.
 
 - [Homebrew](https://github.com/Homebrew/homebrew/wiki/Installation)
 
-    ```
+    ```sh
     brew tap thoughtbot/formulae
     brew install rcm zsh
     ```
@@ -21,15 +21,17 @@ A set of vim, zsh, git, and tmux configuration files.
 ## Ubuntu
 
 - [`rcm`](http://thoughtbot.github.io/rcm/)
-<pre>
+
+    ```sh
     wget https://thoughtbot.github.io/rcm/debs/rcm_1.2.2-2_all.deb
     sudo dpkg -i rcm_1.2.2-2_all.deb
-</pre>
-- `terminator` (optional)
-<pre>
-    apt-get install terminator
-</pre>
+    ```
 
+- `terminator` (optional)
+
+    ```sh
+    apt-get install terminator
+    ```
 
 # Install
 
