@@ -13,8 +13,10 @@ A set of vim, zsh, git, and tmux configuration files.
 
 - [Homebrew](https://github.com/Homebrew/homebrew/wiki/Installation)
 
+    ```
     brew tap thoughtbot/formulae
     brew install rcm zsh
+    ```
 
 ## Ubuntu
 
